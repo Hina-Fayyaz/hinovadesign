@@ -35,14 +35,9 @@ async function loadComponents() {
    WORK CAROUSEL
 ═══════════════════════════════════════════ */
 const SLIDES = [
-  { src: 'assets/images/work-1.png', label: 'Course Design'          },
-  { src: 'assets/images/work-2.png', label: 'Course Design (Dark)'   },
-  { src: 'assets/images/work-3.png', label: 'Book a Call'            },
-  { src: 'assets/images/work-4.png', label: 'Book a Call (Dark)'     },
-  { src: 'assets/images/work-5.png', label: 'Client Reviews'         },
-  { src: 'assets/images/work-6.png', label: 'Client Reviews (Dark)'  },
-  { src: 'assets/images/work-7.png', label: 'Portfolio Work'         },
-  { src: 'assets/images/work-8.png', label: 'Portfolio Work (Dark)'  },
+  { src: 'assets/images/1.png', label: 'Course Design'    },
+  { src: 'assets/images/2.png', label: 'Worksheet Design' },
+  { src: 'assets/images/3.png', label: 'Fillable Forms'   },
 ];
 let slideIndex = 0;
 
