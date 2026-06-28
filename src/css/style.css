@@ -93,7 +93,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 #hero {
   background: var(--bg-dark);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 90px 100px 70px;
+  padding: 82px 100px 70px;
   min-height: 760px; position: relative; overflow: hidden;
   gap: 60px;
 }
