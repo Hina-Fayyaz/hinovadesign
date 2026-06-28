@@ -195,6 +195,43 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .wave-divider { width: 100%; overflow: visible; margin: -6px 0; display: block; }
 
 /* ═══════════════════════════════════════════
+   TOOLS / LOGOS STRIP
+═══════════════════════════════════════════ */
+.tools-section {
+  background: var(--bg-light);
+  padding: 10px 0 64px;
+}
+.tools-label {
+  text-align: center;
+  font-family: var(--font-mono); font-weight: 600; font-size: 11px;
+  letter-spacing: 2.5px; color: rgba(0,0,0,.35);
+  margin-bottom: 28px;
+}
+.tools-track-wrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image:         linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.tools-track {
+  display: flex; align-items: center; gap: 48px;
+  width: max-content;
+  animation: toolsScroll 28s linear infinite;
+}
+.tools-track:hover { animation-play-state: paused; }
+@keyframes toolsScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tool-logo {
+  height: 72px; width: auto;
+  object-fit: contain; flex-shrink: 0;
+  filter: grayscale(0);
+  transition: transform .25s ease, filter .25s ease;
+  border-radius: 16px;
+}
+.tool-logo:hover { transform: scale(1.1); filter: brightness(1.08); }
+
+/* ═══════════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════════ */
 #about {
