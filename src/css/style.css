@@ -174,7 +174,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
    ABOUT
 ═══════════════════════════════════════════ */
 #about {
-  background: var(--bg-light); padding: 80px 100px;
+  background: var(--bg-light); padding: 110px 100px;
   display: flex; gap: 55px; align-items: center;
   position: relative; overflow: hidden;
 }
@@ -184,17 +184,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .about-name-heading      { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 90px; color: var(--text-muted); letter-spacing: -4.5px; line-height: 1; }
 .about-name-heading .pink { color: var(--primary); }
-.about-body              { font-family: var(--font-sans); font-size: 25px; color: var(--text-light); line-height: 1.5; margin: 28px 0 35px; }
+.about-body              { font-family: var(--font-sans); font-size: 25px; color: var(--text-light); line-height: 1.5; margin: 32px 0 48px; }
 .about-body strong       { font-size: 30px; font-weight: 700; letter-spacing: -0.6px; }
 
 /* ═══════════════════════════════════════════
    FEATURED WORK
 ═══════════════════════════════════════════ */
-#work { background: var(--bg-dark); padding: 60px 100px 0; }
+#work { background: var(--bg-dark); padding: 100px 100px 0; }
 
 .work-header {
   display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 40px; margin-bottom: 44px;
+  gap: 40px; margin-bottom: 60px;
 }
 .work-nav-arrows { display: flex; gap: 14px; flex-shrink: 0; padding-bottom: 18px; }
 
@@ -272,7 +272,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .work-card.slide-in-right  { animation: slideInRight  .38s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
 .work-card.slide-in-left   { animation: slideInLeft   .38s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
 
-.stats-strip { background: var(--bg-dark); border-radius: 175px; display: flex; align-items: center; justify-content: space-around; padding: 30px 60px; max-width: 1250px; margin: 0 auto; }
+.stats-strip { background: #2a2a2a; border-radius: 175px; display: flex; align-items: center; justify-content: space-around; padding: 40px 60px; max-width: 1250px; margin: 80px auto 100px; }
 .stat-blob   { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .stat-num    { font-family: var(--font-sans); font-weight: 700; font-size: 82px; letter-spacing: -5px; line-height: 1; }
 .stat-num.lime { color: var(--secondary); }
@@ -282,10 +282,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    SKILLS & TESTIMONIALS
 ═══════════════════════════════════════════ */
-#skills { background: var(--bg-light); padding: 80px 100px; position: relative; overflow: hidden; }
-.skills-header { margin-bottom: 60px; }
+#skills { background: var(--bg-light); padding: 110px 100px 100px; position: relative; overflow: hidden; }
+.skills-header { margin-bottom: 80px; }
 
-.service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 80px; }
+.service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 60px; }
 .service-card  { border-radius: 40px; overflow: hidden; min-height: 420px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; background: #000; box-shadow: 0 18px 32px rgba(30,30,30,.65); }
 .service-card-pink  { background: linear-gradient(160deg, #fd51ab55 0%, #1e1e1e 60%); }
 .service-card-green { background: linear-gradient(160deg, #bee82a44 0%, #1e1e1e 60%); }
@@ -303,8 +303,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    PROCESS
 ═══════════════════════════════════════════ */
-#process { background: var(--bg-light); padding: 80px 100px; }
-.process-intro          { max-width: 700px; margin-bottom: 60px; }
+#process { background: var(--bg-light); padding: 110px 100px 100px; }
+.process-intro          { max-width: 700px; margin-bottom: 80px; }
 .process-intro-heading  { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 90px; letter-spacing: -6px; line-height: 1; }
 .process-intro-subheading { font-family: var(--font-serif); font-size: 50px; color: #000; margin-top: 20px; }
 .process-intro-body     { font-family: var(--font-sans); font-size: 25px; color: #000; margin-top: 20px; }
@@ -325,10 +325,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    WHY ME
 ═══════════════════════════════════════════ */
-#why { background: var(--bg-light); padding: 60px 100px; position: relative; overflow: hidden; }
+#why { background: var(--bg-light); padding: 110px 100px; position: relative; overflow: hidden; }
 .why-heading          { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 90px; letter-spacing: -3.6px; line-height: 1; }
 .why-heading .pink    { color: var(--primary); }
-.why-subtext          { font-family: var(--font-sans); font-size: 25px; color: #000; max-width: 970px; margin: 20px 0 50px; }
+.why-subtext          { font-family: var(--font-sans); font-size: 25px; color: #000; max-width: 970px; margin: 28px 0 64px; }
 .why-list             { display: flex; flex-direction: column; gap: 18px; max-width: 500px; }
 .why-item             { display: flex; gap: 12px; align-items: flex-start; }
 .why-checkmark        { width: 27px; height: 27px; border-radius: 50%; background: var(--secondary); color: #1e1e1e; display: flex; align-items: center; justify-content: center; font-size: .8rem; flex-shrink: 0; margin-top: 4px; }
@@ -337,7 +337,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════ */
-#contact { background: var(--bg-light); padding: 100px 100px; display: flex; gap: 60px; align-items: flex-start; position: relative; overflow: hidden; }
+#contact { background: var(--bg-light); padding: 110px 100px 120px; display: flex; gap: 60px; align-items: flex-start; position: relative; overflow: hidden; }
 .contact-left    { max-width: 610px; }
 .contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 90px; letter-spacing: -4.5px; line-height: 1; }
 .contact-heading .pink { color: var(--primary); }
@@ -371,20 +371,20 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .navbar              { padding: 16px 24px; }
   .navbar-links        { gap: 18px; }
   .navbar-links a      { font-size: 18px; }
-  #hero                { flex-direction: column; padding: 40px 24px 0; }
-  .hero-image-wrap     { width: 100%; height: auto; margin: 30px 0 0; justify-content: center; }
+  #hero                { flex-direction: column; padding: 60px 24px 0; }
+  .hero-image-wrap     { width: 100%; height: auto; margin: 40px 0 0; justify-content: center; }
   .hero-circle-ring    { width: 300px; height: 300px; }
-  #about               { flex-direction: column; padding: 60px 24px; }
+  #about               { flex-direction: column; padding: 80px 24px; }
   .about-images        { width: 100%; height: 400px; }
-  #work                { padding: 60px 24px 0; }
+  #work                { padding: 80px 24px 0; }
   .work-header         { flex-direction: column; align-items: flex-start; gap: 20px; }
   .work-nav-arrows     { padding-bottom: 0; }
   .work-cards          { overflow-x: auto; padding-bottom: 30px; }
   .work-card           { min-width: 280px; flex: none; }
+  .stats-strip         { padding: 28px 24px; border-radius: 40px; margin: 60px auto 80px; }
   .service-block       { grid-template-columns: 1fr; }
   .process-cards       { flex-direction: column; }
-  #contact             { flex-direction: column; padding: 60px 24px; }
-  .stats-strip         { padding: 24px; border-radius: 40px; }
+  #contact             { flex-direction: column; padding: 80px 24px; }
   footer               { flex-direction: column; gap: 20px; padding: 30px 24px; }
   .hero-heading        { font-size: 40px; }
   .hero-heading-italic { font-size: 50px; }
