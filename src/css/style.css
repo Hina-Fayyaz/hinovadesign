@@ -232,46 +232,48 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .tool-logo:hover { transform: scale(1.12); }
 
 /* ═══════════════════════════════════════════
-   SAMPLES GALLERY  — arc → flat animation
+   HERO WAVE
+═══════════════════════════════════════════ */
+.hero-wave { width: 100%; display: block; margin-top: -3px; }
+
+/* ═══════════════════════════════════════════
+   SAMPLES GALLERY  — U-curve layout
 ═══════════════════════════════════════════ */
 .samples-section {
   background: var(--bg-light);
-  padding: 0 80px 100px;
-  overflow: hidden;
+  padding: 50px 50px 110px;
 }
 .samples-grid {
   display: flex;
   gap: 14px;
-  align-items: flex-start;
-  max-width: 1020px;
+  align-items: flex-start;  /* tops align; arc-y pushes center down */
+  max-width: 1100px;
   margin: 0 auto;
-  padding-bottom: 80px; /* room for arc hang */
+  padding-bottom: 100px;    /* breathing room for center card hang */
 }
 .sample-card {
   flex: 1;
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,.055);
-  box-shadow: 0 4px 22px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
-  /* arc starting position driven by CSS custom property */
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0 3px 18px rgba(0,0,0,.07), 0 1px 3px rgba(0,0,0,.04);
   transform: translateY(var(--arc-y, 0px));
-  transition: transform .9s cubic-bezier(0.22, 0.61, 0.36, 1),
+  transition: transform .95s cubic-bezier(0.22, 0.61, 0.36, 1),
               box-shadow .3s ease;
   will-change: transform;
 }
-/* flatten: all cards drop to the same baseline */
-.samples-section.is-flat .sample-card {
-  transform: translateY(0) !important;
-}
+/* scroll-triggered flatten */
+.samples-section.is-flat .sample-card { transform: translateY(0) !important; }
+
 .sample-card img {
   width: 100%; display: block;
   object-fit: cover; object-position: top center;
+  height: 300px;
 }
-.sample-card img     { height: 300px; }
-.sample-card-center img { height: 360px; }
+.sample-card-center img { height: 340px; }
 
 .sample-card:hover {
-  box-shadow: 0 10px 36px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+  box-shadow: 0 10px 32px rgba(0,0,0,.11), 0 2px 5px rgba(0,0,0,.05);
 }
 
 /* ═══════════════════════════════════════════
