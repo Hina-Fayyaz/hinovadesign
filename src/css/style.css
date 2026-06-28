@@ -270,11 +270,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   width: 100%; display: block;
   object-fit: cover; object-position: top center;
   height: 480px;
+  transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.sample-card-center img { height: 530px; }
 
 .sample-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.05);
+  box-shadow: 0 16px 48px rgba(0,0,0,.14), 0 2px 6px rgba(0,0,0,.05);
+}
+.sample-card:hover img {
+  transform: scale(1.05);
 }
 
 /* ═══════════════════════════════════════════
