@@ -199,23 +199,28 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 ═══════════════════════════════════════════ */
 .tools-section {
   background: var(--bg-light);
-  padding: 10px 0 64px;
+  padding: 0 0 56px;
+  position: relative; z-index: 2;
+  margin-top: -90px;
 }
 .tools-label {
   text-align: center;
   font-family: var(--font-mono); font-weight: 600; font-size: 11px;
-  letter-spacing: 2.5px; color: rgba(0,0,0,.35);
-  margin-bottom: 28px;
+  letter-spacing: 2.5px; color: rgba(0,0,0,.32);
+  margin-bottom: 24px;
 }
-.tools-track-wrapper {
+/* centred, fixed-width container so logos don't span full viewport */
+.tools-marquee-wrap {
+  max-width: 780px;
+  margin: 0 auto;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
-  mask-image:         linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  mask-image:         linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
 }
 .tools-track {
-  display: flex; align-items: center; gap: 48px;
+  display: flex; align-items: center; gap: 40px;
   width: max-content;
-  animation: toolsScroll 28s linear infinite;
+  animation: toolsScroll 26s linear infinite;
 }
 .tools-track:hover { animation-play-state: paused; }
 @keyframes toolsScroll {
@@ -223,13 +228,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   100% { transform: translateX(-50%); }
 }
 .tool-logo {
-  height: 72px; width: auto;
+  height: 62px; width: auto;
   object-fit: contain; flex-shrink: 0;
-  filter: grayscale(0);
-  transition: transform .25s ease, filter .25s ease;
-  border-radius: 16px;
+  transition: transform .25s ease;
+  border-radius: 12px;
 }
-.tool-logo:hover { transform: scale(1.1); filter: brightness(1.08); }
+.tool-logo:hover { transform: scale(1.12); }
 
 /* ═══════════════════════════════════════════
    ABOUT
