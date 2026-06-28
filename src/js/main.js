@@ -133,12 +133,10 @@ function initSamplesAnimation() {
   if (!section || !('IntersectionObserver' in window)) return;
   var obs = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        section.classList.add('is-flat');
-        obs.unobserve(section);
-      }
+      /* toggle: flat when visible, U-curve when not visible */
+      section.classList.toggle('is-flat', entry.isIntersecting);
     });
-  }, { threshold: 0.18 });
+  }, { threshold: 0.15 });
   obs.observe(section);
 }
 
