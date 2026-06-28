@@ -47,13 +47,35 @@ const SLIDES = [
 let slideIndex = 0;
 
 function changeSlide(dir) {
-  slideIndex = (slideIndex + dir + SLIDES.length) % SLIDES.length;
-  const cards = document.querySelectorAll('.work-card');
-  cards.forEach(function (card, i) {
-    const s = SLIDES[(slideIndex + i) % SLIDES.length];
-    card.querySelector('.card-img').src         = s.src;
-    card.querySelector('.card-label').textContent = s.label;
+  const cards    = document.querySelectorAll('.work-card');
+  const outClass = dir > 0 ? 'slide-out-left'  : 'slide-out-right';
+  const inClass  = dir > 0 ? 'slide-in-right'  : 'slide-in-left';
+
+  const arrowId = dir > 0 ? 'nextArrow' : 'prevArrow';
+  const arrow   = document.getElementById(arrowId);
+  if (arrow) {
+    arrow.classList.add('clicked');
+    setTimeout(function () { arrow.classList.remove('clicked'); }, 250);
+  }
+
+  cards.forEach(function (card) {
+    card.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+    card.classList.add(outClass);
   });
+
+  setTimeout(function () {
+    slideIndex = (slideIndex + dir + SLIDES.length) % SLIDES.length;
+    cards.forEach(function (card, i) {
+      const s = SLIDES[(slideIndex + i) % SLIDES.length];
+      card.querySelector('.card-img').src            = s.src;
+      card.querySelector('.card-label').textContent  = s.label;
+      card.classList.remove(outClass);
+      card.classList.add(inClass);
+    });
+    setTimeout(function () {
+      cards.forEach(function (card) { card.classList.remove(inClass); });
+    }, 380);
+  }, 280);
 }
 
 /* ═══════════════════════════════════════════
