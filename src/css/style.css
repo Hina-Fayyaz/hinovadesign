@@ -285,53 +285,83 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 #skills { background: var(--bg-light); padding: 110px 100px 100px; position: relative; overflow: hidden; }
 .skills-header { margin-bottom: 80px; }
 
-/* blob col = 3 parts, testimonial col = 2 parts */
-.service-block          { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; margin-bottom: 120px; }
+/* ── grid: blob=3fr  testimonial=2fr ── */
+.service-block          { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: center; margin-bottom: 100px; }
 .service-block:last-child { margin-bottom: 0; }
-/* reversed block: testimonial (2fr) left, blob (3fr) right */
 .service-block-reversed { grid-template-columns: 2fr 3fr; }
 
-/* Blob card */
-.blob-card-wrap {
-  position: relative; min-height: 520px;
-  display: flex; align-items: center; justify-content: center;
+/* ── CSS-only blob cards ── */
+.blob-card {
+  position: relative;
+  background: var(--bg-dark);
+  /* lime ring: section-bg gap then lime outline */
+  box-shadow: 0 0 0 6px var(--bg-light), 0 0 0 14px var(--secondary);
+  min-height: 440px;
+  padding: 80px 100px;
+  display: flex; flex-direction: column; justify-content: center;
+  color: #fff;
+  transition: transform .5s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow .5s ease;
 }
-.blob-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: fill; display: block; pointer-events: none;
+.blob-card:hover {
+  transform: scale(1.025);
+  box-shadow: 0 0 0 6px var(--bg-light), 0 0 0 18px var(--secondary);
 }
-.blob-img-border { transform: scale(1.1); z-index: 0; }
-.blob-img-fill   { z-index: 1; }
-.blob-content {
-  position: relative; z-index: 2;
-  padding: 90px 110px; width: 100%; color: #fff;
+
+/* Three distinct organic shapes */
+.blob-card-1 { border-radius: 62% 38% 54% 46% / 50% 62% 38% 50%; }
+.blob-card-2 { border-radius: 44% 56% 48% 52% / 60% 40% 62% 40%; }
+.blob-card-3 { border-radius: 54% 46% 62% 38% / 42% 58% 42% 58%; }
+
+.service-num {
+  font-family: var(--font-mono); font-weight: 700; font-size: 11px;
+  color: var(--secondary); letter-spacing: 3px; text-transform: uppercase;
+  display: block; margin-bottom: 16px;
 }
 .blob-title {
-  font-family: var(--font-serif); font-weight: 700; font-size: 30px;
-  color: #fff; margin-bottom: 16px; line-height: 1.2;
+  font-family: var(--font-serif); font-weight: 700; font-size: 32px;
+  color: #fff; margin-bottom: 18px; line-height: 1.2;
 }
 .blob-body {
   font-family: var(--font-sans); font-size: 15px;
-  color: rgba(255,255,255,.82); line-height: 1.75; margin-bottom: 28px;
+  color: rgba(255,255,255,.78); line-height: 1.8; margin-bottom: 32px;
+  max-width: 380px;
 }
 .btn-blob {
-  display: inline-block; background: #fff; color: #1e1e1e;
+  display: inline-flex; align-items: center;
+  background: transparent; color: var(--secondary);
+  border: 1.5px solid var(--secondary);
   font-family: var(--font-mono); font-weight: 700; font-size: 12px;
   padding: 10px 22px; border-radius: 30px; width: fit-content;
-  transition: background .2s, color .2s;
+  transition: background .25s, color .25s;
 }
 .btn-blob:hover { background: var(--secondary); color: #1e1e1e; }
 
-/* Testimonial — vertically centered against the tall blob */
-.testimonial-block { display: flex; flex-direction: column; gap: 18px; padding-top: 160px; }
-.arrow-decor  { width: 50px; height: auto; opacity: .7; }
-.arrow-flip   { transform: scaleX(-1); }
-.testimonial-quote  { font-family: var(--font-sans); font-size: 16px; color: rgba(30,30,30,.75); line-height: 1.75; }
-.testimonial-person { display: flex; gap: 14px; align-items: center; margin-top: 10px; }
-.testimonial-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: .9rem; font-weight: 700; color: #1e1e1e; flex-shrink: 0; }
-.testimonial-name   { font-family: var(--font-serif); font-weight: 700; font-size: 19px; letter-spacing: -0.2px; color: #000; }
-.testimonial-role   { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+/* ── Testimonial ── */
+.testimonial-block {
+  display: flex; flex-direction: column; gap: 18px;
+  padding-top: 60px;
+}
+.quote-mark {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 110px; line-height: 0.75;
+  color: var(--primary); display: block;
+  margin-bottom: 8px; user-select: none;
+}
+.testimonial-quote {
+  font-family: var(--font-sans); font-style: italic;
+  font-size: 16px; color: rgba(30,30,30,.78);
+  line-height: 1.8; max-width: 400px;
+}
+.testimonial-person { display: flex; gap: 14px; align-items: center; margin-top: 14px; }
+.testimonial-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--secondary); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; font-weight: 700; color: #1e1e1e;
+}
+.testimonial-name { font-family: var(--font-serif); font-weight: 700; font-size: 18px; color: #000; letter-spacing: -0.2px; }
+.testimonial-role { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); margin-top: 3px; }
 
 /* ═══════════════════════════════════════════
    PROCESS
@@ -415,10 +445,10 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .work-cards          { overflow-x: auto; padding-bottom: 30px; }
   .work-card           { min-width: 280px; flex: none; }
   .stats-strip         { padding: 28px 24px; border-radius: 40px; margin: 60px auto 80px; }
-  .service-block, .service-block-reversed { grid-template-columns: 1fr; gap: 40px; }
-  .blob-card-wrap  { min-height: 380px; }
-  .blob-content    { padding: 60px 55px; }
-  .testimonial-block { padding-top: 20px; }
+  .service-block, .service-block-reversed { grid-template-columns: 1fr; gap: 50px; }
+  .blob-card { padding: 60px 55px; min-height: 360px; }
+  .testimonial-block { padding-top: 10px; }
+  .quote-mark { font-size: 80px; }
   .process-cards   { flex-direction: column; }
   #contact         { flex-direction: column; padding: 80px 24px; }
   footer           { flex-direction: column; gap: 20px; padding: 30px 24px; }
