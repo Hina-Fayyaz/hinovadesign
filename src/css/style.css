@@ -118,29 +118,57 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: relative; flex-shrink: 0;
   width: 520px; height: 620px;
   display: flex; align-items: flex-end; justify-content: center;
-  margin-right: -10px;
+  margin-right: -10px; overflow: visible;
 }
 .hero-image-wrap .spiral-bg {
   position: absolute; width: 580px; height: 580px;
   top: 20px; left: -30px; opacity: .08; object-fit: cover; pointer-events: none;
 }
-.hero-circle-ring {
-  width: 470px; height: 470px;
+
+/* ── Concentric-ring portrait ── */
+.hero-portrait {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.portrait-outer {
+  width: 440px; height: 440px;
   border-radius: 50%;
-  border: 7px solid var(--primary);
+  background: var(--primary);
+  padding: 22px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 20px 55px rgba(0,0,0,.45);
+}
+.portrait-lime {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: var(--secondary);
+  padding: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.portrait-photo-wrap {
+  width: 100%; height: 100%;
+  border-radius: 50%;
   overflow: hidden;
-  position: relative; flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(253,81,171,.18), 0 24px 60px rgba(0,0,0,.55);
-  animation: ringPulse 3.5s ease-in-out infinite;
 }
-@keyframes ringPulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(253,81,171,.18), 0 24px 60px rgba(0,0,0,.55); }
-  50%       { box-shadow: 0 0 0 10px rgba(253,81,171,.08), 0 24px 60px rgba(0,0,0,.55); }
-}
-.hero-image-wrap .hero-photo {
-  width: 100%; height: 115%;
+.hero-photo {
+  width: 100%; height: 100%;
   object-fit: cover; object-position: top center; display: block;
 }
+
+/* ── Floating badges ── */
+.hero-badge {
+  position: absolute;
+  background: var(--bg-light);
+  color: var(--text-light);
+  font-family: var(--font-sans); font-weight: 600; font-size: 13px;
+  padding: 9px 18px; border-radius: 30px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,.14);
+  letter-spacing: 0.15px;
+}
+.badge-top    { top: 72px;    right: -12px; }
+.badge-bottom { bottom: 82px; left: -12px;  }
 
 /* ═══════════════════════════════════════════
    WAVE DIVIDER
@@ -485,7 +513,11 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .navbar-links a      { font-size: 18px; }
   #hero                { flex-direction: column; padding: 60px 24px 0; }
   .hero-image-wrap     { width: 100%; height: auto; margin: 40px 0 0; justify-content: center; }
-  .hero-circle-ring    { width: 300px; height: 300px; }
+  .portrait-outer      { width: 300px; height: 300px; padding: 16px; }
+  .portrait-lime       { padding: 13px; }
+  .hero-badge          { font-size: 11px; padding: 7px 14px; }
+  .badge-top           { top: 44px;  right: -8px; }
+  .badge-bottom        { bottom: 50px; left: -8px; }
   #about               { flex-direction: column; padding: 80px 24px; }
   .about-images        { width: 100%; height: 400px; }
   #work                { padding: 80px 24px 0; }
