@@ -125,11 +125,31 @@ function initActiveNav() {
 }
 
 /* ═══════════════════════════════════════════
+   SKILLS SCROLL ANIMATIONS
+═══════════════════════════════════════════ */
+function initSkillsAnimations() {
+  if (!('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.blob-card, .testimonial-block').forEach(function (el) {
+    el.classList.add('will-animate');
+    observer.observe(el);
+  });
+}
+
+/* ═══════════════════════════════════════════
    BOOT
 ═══════════════════════════════════════════ */
 function initAll() {
   initSmoothScroll();
   initActiveNav();
+  initSkillsAnimations();
   /* expose globals needed by inline onclick attrs in components */
   window.changeSlide  = changeSlide;
   window.sendMessage  = sendMessage;
