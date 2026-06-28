@@ -232,35 +232,47 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .tool-logo:hover { transform: scale(1.12); }
 
 /* ═══════════════════════════════════════════
-   SAMPLES GALLERY
+   SAMPLES GALLERY  — arc → flat animation
 ═══════════════════════════════════════════ */
 .samples-section {
   background: var(--bg-light);
-  padding: 0 60px 80px;
+  padding: 0 80px 100px;
+  overflow: hidden;
 }
 .samples-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr 1fr;
-  gap: 18px;
-  align-items: center;
-  max-width: 1300px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 1020px;
   margin: 0 auto;
+  padding-bottom: 80px; /* room for arc hang */
 }
 .sample-card {
-  border-radius: 20px;
+  flex: 1;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0,0,0,.10);
-  transition: transform .35s ease, box-shadow .35s ease;
+  border: 1px solid rgba(0,0,0,.055);
+  box-shadow: 0 4px 22px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
+  /* arc starting position driven by CSS custom property */
+  transform: translateY(var(--arc-y, 0px));
+  transition: transform .9s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow .3s ease;
+  will-change: transform;
 }
-.sample-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 55px rgba(0,0,0,.16);
+/* flatten: all cards drop to the same baseline */
+.samples-section.is-flat .sample-card {
+  transform: translateY(0) !important;
 }
 .sample-card img {
-  width: 100%; display: block; object-fit: cover;
+  width: 100%; display: block;
+  object-fit: cover; object-position: top center;
 }
-.sample-card-sm img  { height: 340px; }
-.sample-card-lg img  { height: 440px; }
+.sample-card img     { height: 300px; }
+.sample-card-center img { height: 360px; }
+
+.sample-card:hover {
+  box-shadow: 0 10px 36px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+}
 
 /* ═══════════════════════════════════════════
    ABOUT

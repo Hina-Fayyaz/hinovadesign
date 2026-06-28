@@ -36,9 +36,9 @@ async function loadComponents() {
    WORK CAROUSEL
 ═══════════════════════════════════════════ */
 const SLIDES = [
-  { src: 'assets/images/1.png', label: 'Course Design'    },
-  { src: 'assets/images/2.png', label: 'Worksheet Design' },
-  { src: 'assets/images/3.png', label: 'Fillable Forms'   },
+  { src: 'assets/images/Featured%20Work/1.png',  label: 'Course Design'    },
+  { src: 'assets/images/Featured%20Work/2.png',  label: 'Worksheet Design' },
+  { src: 'assets/images/Featured%20Work/3.png',  label: 'Fillable Forms'   },
 ];
 let slideIndex = 0;
 
@@ -126,6 +126,23 @@ function initActiveNav() {
 }
 
 /* ═══════════════════════════════════════════
+   SAMPLES ARC → FLAT ANIMATION
+═══════════════════════════════════════════ */
+function initSamplesAnimation() {
+  var section = document.querySelector('.samples-section');
+  if (!section || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        section.classList.add('is-flat');
+        obs.unobserve(section);
+      }
+    });
+  }, { threshold: 0.18 });
+  obs.observe(section);
+}
+
+/* ═══════════════════════════════════════════
    SKILLS SCROLL ANIMATIONS
 ═══════════════════════════════════════════ */
 function initSkillsAnimations() {
@@ -150,6 +167,7 @@ function initSkillsAnimations() {
 function initAll() {
   initSmoothScroll();
   initActiveNav();
+  initSamplesAnimation();
   initSkillsAnimations();
   /* expose globals needed by inline onclick attrs in components */
   window.changeSlide  = changeSlide;
