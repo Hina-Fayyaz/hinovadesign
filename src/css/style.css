@@ -253,7 +253,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .work-cards:hover .work-card:hover {
   filter: brightness(1) grayscale(0);
   transform: translateY(-12px) scale(1.026);
-  box-shadow: 0 24px 50px -4px rgba(253,81,171,.32), 0 10px 22px rgba(0,0,0,.45);
+  box-shadow: 0 12px 28px -6px rgba(180,180,180,.22), 0 4px 10px rgba(0,0,0,.18);
 }
 @keyframes cardEnter { from { opacity:0; transform: translateY(50px); } to { opacity:1; transform: translateY(0); } }
 
