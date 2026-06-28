@@ -190,18 +190,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ═══════════════════════════════════════════
-   WAVE DIVIDER
-═══════════════════════════════════════════ */
-.wave-divider { width: 100%; overflow: visible; margin: -6px 0; display: block; }
-
-/* ═══════════════════════════════════════════
    TOOLS / LOGOS STRIP
 ═══════════════════════════════════════════ */
 .tools-section {
   background: var(--bg-light);
-  padding: 0 0 56px;
+  padding: 56px 0 52px;
+  border-radius: 40px 40px 0 0;
+  margin-top: -36px;
   position: relative; z-index: 2;
-  margin-top: -90px;
 }
 .tools-label {
   text-align: center;
@@ -234,6 +230,37 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   border-radius: 12px;
 }
 .tool-logo:hover { transform: scale(1.12); }
+
+/* ═══════════════════════════════════════════
+   SAMPLES GALLERY
+═══════════════════════════════════════════ */
+.samples-section {
+  background: var(--bg-light);
+  padding: 0 60px 80px;
+}
+.samples-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: 18px;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.sample-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,.10);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.sample-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 55px rgba(0,0,0,.16);
+}
+.sample-card img {
+  width: 100%; display: block; object-fit: cover;
+}
+.sample-card-sm img  { height: 340px; }
+.sample-card-lg img  { height: 440px; }
 
 /* ═══════════════════════════════════════════
    ABOUT

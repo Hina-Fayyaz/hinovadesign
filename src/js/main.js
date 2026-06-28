@@ -7,6 +7,7 @@ const components = [
   { id: 'navbar-root',   file: 'src/components/Navbar.html'   },
   { id: 'hero-root',     file: 'src/components/Hero.html'     },
   { id: 'tools-root',    file: 'src/components/Tools.html'    },
+  { id: 'samples-root',  file: 'src/components/Samples.html'  },
   { id: 'about-root',    file: 'src/components/About.html'    },
   { id: 'work-root',     file: 'src/components/Work.html'     },
   { id: 'skills-root',   file: 'src/components/Skills.html'   },
