@@ -468,13 +468,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .testimonial-block {
   display: flex; flex-direction: column; gap: 16px;
   padding-top: 50px; padding-left: 28px;
-  border-left: 2.5px solid var(--primary);
   transition: opacity .7s ease .22s, transform .7s ease .22s;
 }
-/* reversed: border flips to the right side (facing the blob) */
 .service-block-reversed .testimonial-block {
-  border-left: none;
-  border-right: 2.5px solid var(--primary);
   padding-left: 0; padding-right: 28px;
 }
 
@@ -617,11 +613,8 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .blob-card { padding: 52px 44px; min-height: 320px; }
   .blob-title { font-size: 26px; }
   .blob-body  { max-width: 100%; }
-  /* on mobile everything stacks — reset reversed testimonial border to left */
   .testimonial-block,
   .service-block-reversed .testimonial-block {
-    border-left: 2.5px solid var(--primary);
-    border-right: none;
     padding-left: 22px; padding-right: 0; padding-top: 0;
   }
   .quote-mark { font-size: 76px; }
