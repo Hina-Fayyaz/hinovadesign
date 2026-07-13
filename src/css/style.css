@@ -74,11 +74,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 ═══════════════════════════════════════════ */
 .navbar {
   position: sticky; top: 0; left: 0; right: 0; z-index: 120;
-  background: linear-gradient(90deg, #fbf6ef, #f6efe6);
+  background: var(--bg-light);
   display: block;
   padding: 12px 24px;
   width: 100%;
-  box-shadow: 0 4px 18px rgba(30,30,30,.06);
+  box-shadow: 0 4px 18px rgba(30,30,30,.04);
+  border-bottom: 1px solid rgba(30,30,30,.04); /* minimal horizontal divider matching hero */
   transition: box-shadow .2s ease;
 }
 .navbar.nav-visible { /* keep for compatibility with JS reveal */ }
