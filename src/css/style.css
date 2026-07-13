@@ -820,8 +820,8 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════ */
-#contact { background: var(--bg-light); padding: 120px 80px; display: flex; gap: 120px; align-items: flex-start; position: relative; overflow: hidden; }
-.contact-left    { flex: 0 1 460px; max-width: 460px; }
+#contact { background: var(--bg-light); padding: 120px 80px; display: flex; gap: 120px; align-items: flex-start; position: relative; overflow: hidden; justify-content: space-between; }
+.contact-left    { flex: 0 0 460px; max-width: 460px; }
 .contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: -3px; line-height: 1.08; margin-bottom: 24px; }
 .contact-heading .pink { color: var(--primary); }
 .contact-heading .dark { color: var(--text-light); }
@@ -833,7 +833,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .contact-form {
   background: #0f0f0f; border-radius: 30px; padding: 60px;
-  flex: 1 1 480px; max-width: 600px; min-width: 0;
+  flex: 0 0 600px; max-width: 600px; min-width: 0;
   box-shadow: 0 40px 90px -35px rgba(0,0,0,.55), inset 0 1px 0 rgba(241,239,229,.08);
   border: 1px solid rgba(241,239,229,.08);
 }
