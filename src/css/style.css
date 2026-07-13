@@ -820,47 +820,35 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════ */
-#contact { background: var(--bg-light); padding: 110px 100px 120px; display: flex; gap: clamp(48px, 6vw, 90px); align-items: center; position: relative; overflow: hidden; }
+#contact { background: var(--bg-light); padding: 120px 80px; display: flex; gap: 80px; align-items: flex-start; position: relative; overflow: hidden; }
 .contact-left    { flex: 0 1 460px; max-width: 460px; }
-.contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: -3px; line-height: 1.08; }
+.contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: -3px; line-height: 1.08; margin-bottom: 24px; }
 .contact-heading .pink { color: var(--primary); }
 .contact-heading .dark { color: var(--text-light); }
-.contact-body    { font-family: var(--font-sans); font-size: 17px; color: rgba(30,30,30,.8); margin: 24px 0 36px; line-height: 1.75; }
+.contact-body    { font-family: var(--font-sans); font-size: 17px; color: rgba(30,30,30,.8); margin: 20px 0 40px; line-height: 1.75; }
 
-.contact-email-bar   { position: relative; background: var(--bg-dark); border-radius: 999px; display: inline-flex; align-items: center; gap: 14px; padding: 15px 28px 15px 20px; box-shadow: 0 16px 36px -16px rgba(30,30,30,.45); }
+.contact-email-bar   { position: relative; background: var(--bg-dark); border-radius: 999px; display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; box-shadow: 0 16px 36px -16px rgba(30,30,30,.45); }
 .contact-email-bar i { font-size: 1rem; color: #1e1e1e; background: var(--secondary); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .contact-email-bar > span { font-family: var(--font-sans); font-weight: 600; font-size: 15.5px; color: #fff; }
 
-/* lime sparkle burst at the pill's top-right corner */
-.contact-spark { position: absolute; top: -16px; right: 6px; width: 26px; height: 22px; pointer-events: none; }
-.contact-spark i {
-  position: absolute; bottom: 0; left: 50%; width: 3px; height: 13px;
-  background: var(--secondary); border-radius: 2px; transform-origin: bottom center;
-  animation: sparkTwinkle 2.6s ease-in-out infinite;
-}
-.contact-spark i:nth-child(1) { transform: rotate(-38deg); height: 11px; animation-delay: 0s; }
-.contact-spark i:nth-child(2) { transform: rotate(0deg); animation-delay: .3s; }
-.contact-spark i:nth-child(3) { transform: rotate(38deg); height: 11px; animation-delay: .6s; }
-@keyframes sparkTwinkle { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
-
 .contact-form {
-  background: #0f0f0f; border-radius: 30px; padding: 50px 54px;
+  background: #0f0f0f; border-radius: 30px; padding: 60px;
   flex: 1 1 480px; max-width: 600px; min-width: 0;
   box-shadow: 0 40px 90px -35px rgba(0,0,0,.55), inset 0 1px 0 rgba(241,239,229,.08);
   border: 1px solid rgba(241,239,229,.08);
 }
-.form-label   { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--secondary); margin-bottom: 10px; }
+.form-label   { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--secondary); margin-bottom: 12px; }
 .form-input, .form-textarea {
   width: 100%; background: var(--bg-light);
   border: 1px solid transparent; border-radius: 14px;
-  padding: 15px 20px;
+  padding: 16px 20px;
   font-family: var(--font-sans); font-size: 15.5px; color: #2a2a2a; outline: none;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 .form-input::placeholder, .form-textarea::placeholder { color: #8a8a80; }
 .form-input:focus, .form-textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(190,232,42,.22); }
 .form-textarea { height: 150px; resize: none; }
-.form-group    { margin-bottom: 24px; }
+.form-group    { margin-bottom: 28px; }
 
 /* ── animated submit button ── */
 .contact-send {
@@ -896,7 +884,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .contact-note {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   font-family: var(--font-sans); font-size: 13.5px; color: rgba(241,239,229,.6);
-  margin: 16px 0 0;
+  margin: 20px 0 0;
 }
 .contact-note i { color: var(--secondary); }
 
@@ -907,9 +895,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 @media (max-width: 900px) {
-  #contact         { flex-direction: column; padding: 80px 24px; }
+  #contact         { flex-direction: column; padding: 80px 24px; gap: 40px; }
   .contact-left    { flex: 0 1 auto; max-width: none; }
-  .contact-form    { flex: 0 1 auto; width: 100%; max-width: none; padding: 36px 24px; }
+  .contact-form    { flex: 0 1 auto; width: 100%; max-width: none; padding: 40px 24px; }
 }
 
 /* ═══════════════════════════════════════════
