@@ -173,7 +173,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 #hero {
   background: var(--bg-light);
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 140px 24px 90px; position: relative; overflow: hidden;
+  padding: 80px 24px 90px; position: relative; overflow: hidden;
 }
 
 .hero-heading-v2 {
