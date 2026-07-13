@@ -6,3 +6,8 @@ desktop.ini
 # Editor folders
 .vscode/
 .idea/
+
+# Large media files
+*.mp4
+*.mov
+*.avi

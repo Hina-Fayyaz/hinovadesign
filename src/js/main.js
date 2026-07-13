@@ -6,13 +6,14 @@
 const components = [
   { id: 'navbar-root',   file: 'src/components/Navbar.html'   },
   { id: 'hero-root',     file: 'src/components/Hero.html'     },
-  { id: 'tools-root',    file: 'src/components/Tools.html'    },
+  // { id: 'tools-root',    file: 'src/components/Tools.html'    },  // hidden for now
   { id: 'samples-root',  file: 'src/components/Samples.html'  },
   { id: 'about-root',    file: 'src/components/About.html'    },
-  { id: 'work-root',     file: 'src/components/Work.html'     },
+  // { id: 'work-root',     file: 'src/components/Work.html'     },  // hidden for now
   { id: 'skills-root',   file: 'src/components/Skills.html'   },
   { id: 'process-root',  file: 'src/components/Process.html'  },
   { id: 'why-root',      file: 'src/components/WhyMe.html'    },
+  { id: 'testimonials-root', file: 'src/components/Testimonials.html' },
   { id: 'contact-root',  file: 'src/components/Contact.html'  },
   { id: 'footer-root',   file: 'src/components/Footer.html'   },
 ];
@@ -126,21 +127,6 @@ function initActiveNav() {
 }
 
 /* ═══════════════════════════════════════════
-   SAMPLES ARC → FLAT ANIMATION
-═══════════════════════════════════════════ */
-function initSamplesAnimation() {
-  var section = document.querySelector('.samples-section');
-  if (!section || !('IntersectionObserver' in window)) return;
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      /* toggle: flat when visible, U-curve when not visible */
-      section.classList.toggle('is-flat', entry.isIntersecting);
-    });
-  }, { threshold: 0.15 });
-  obs.observe(section);
-}
-
-/* ═══════════════════════════════════════════
    SKILLS SCROLL ANIMATIONS
 ═══════════════════════════════════════════ */
 function initSkillsAnimations() {
@@ -153,10 +139,85 @@ function initSkillsAnimations() {
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.blob-card, .testimonial-block').forEach(function (el) {
+  document.querySelectorAll('.svc-card').forEach(function (el) {
     el.classList.add('will-animate');
     observer.observe(el);
   });
+}
+
+/* ═══════════════════════════════════════════
+   PROCESS — reveal on scroll + timeline progress
+═══════════════════════════════════════════ */
+function initProcessSection() {
+  var section = document.getElementById('process');
+  if (!section) return;
+  var steps = section.querySelector('.process-steps');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    section.classList.add('in-view');
+    if (steps) steps.style.setProperty('--progress', 1);
+    return;
+  }
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        section.classList.add('in-view');
+        obs.unobserve(section);
+      }
+    });
+  }, { threshold: 0.18 });
+  obs.observe(section);
+
+  /* lime timeline fills as the steps column passes through the viewport */
+  function updateProgress() {
+    if (!steps) return;
+    var r = steps.getBoundingClientRect();
+    var ratio = (window.innerHeight * 0.55 - r.top) / r.height;
+    steps.style.setProperty('--progress', Math.min(1, Math.max(0, ratio)).toFixed(3));
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+}
+
+/* ═══════════════════════════════════════════
+   WHY ME — staggered reveal on scroll
+═══════════════════════════════════════════ */
+function initWhySection() {
+  var section = document.getElementById('why');
+  if (!section) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) { section.classList.add('in-view'); return; }
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { section.classList.add('in-view'); obs.unobserve(section); }
+    });
+  }, { threshold: 0.2 });
+  obs.observe(section);
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL NAVBAR ON LOAD / SCROLL — STAYS VISIBLE
+═══════════════════════════════════════════ */
+function initNavRevealOnScroll() {
+  const nav = document.querySelector('.navbar');
+  if (!nav) return;
+  function reveal() {
+    nav.classList.add('nav-visible');
+  }
+  reveal(); /* show on initial page load so it's reachable right away */
+  window.addEventListener('scroll', reveal, { passive: true });
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS — duplicate cards for a seamless marquee loop
+═══════════════════════════════════════════ */
+function initTestimonials() {
+  var track = document.querySelector('#testimonials .tm-track');
+  if (!track || track.dataset.looped) return;
+  track.innerHTML += track.innerHTML;  /* the CSS translateX(-50%) loop needs two copies */
+  track.dataset.looped = '1';
 }
 
 /* ═══════════════════════════════════════════
@@ -165,8 +226,11 @@ function initSkillsAnimations() {
 function initAll() {
   initSmoothScroll();
   initActiveNav();
-  initSamplesAnimation();
   initSkillsAnimations();
+  initNavRevealOnScroll();
+  initTestimonials();
+  initProcessSection();
+  initWhySection();
   /* expose globals needed by inline onclick attrs in components */
   window.changeSlide  = changeSlide;
   window.sendMessage  = sendMessage;
