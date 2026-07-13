@@ -1,25 +1,35 @@
 <section id="contact">
   <div class="contact-left">
     <h2 class="contact-heading">
-      <span class="pink">Let's create</span>
-      <span class="contact-heading-large">something beautiful together!</span>
+      <span class="pink">Let's create</span><br/>
+      <span class="dark">something</span><br/>
+      <span class="dark">beautiful together!</span>
     </h2>
-    <p class="contact-body">Have a workbook, course, digital resource, or form in mind? Share a little about your project, and I’ll help you turn your ideas into a polished experience that feels clear, engaging, and uniquely yours.</p>
-
-    <a class="contact-email-pill" href="mailto:hina@hinovadesign.com"><i class="fas fa-envelope"></i> hina@hinovadesign.com</a>
+    <p class="contact-body">Have a workbook, course, digital resource, or form in mind? Share a little about your project, and I'll help you turn your ideas into a polished experience that feels clear, engaging, and uniquely yours.</p>
+    <div class="contact-email-bar">
+      <i class="fas fa-envelope"></i>
+      <span>hinafayyazbajwa@gmail.com</span>
+      <span class="contact-spark" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
   </div>
 
-  <div class="contact-card">
-    <label class="form-label">Your Name</label>
-    <input class="form-input" type="text" placeholder="Jane Smith" />
-
-    <label class="form-label">Email Address</label>
-    <input class="form-input" type="email" placeholder="jane@company.com" />
-
-    <label class="form-label">Message</label>
-    <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
-
-    <button class="btn-start" type="button" onclick="sendMessage(this)">Start Your Project →</button>
-    <p class="contact-note">I typically respond within 1–2 business days.</p>
+  <div class="contact-form">
+    <div class="form-group">
+      <label class="form-label" for="contact-name">Your Name</label>
+      <input class="form-input" id="contact-name" type="text" placeholder="Jane Smith" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="contact-email">Email Address</label>
+      <input class="form-input" id="contact-email" type="email" placeholder="jane@company.com" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="contact-message">Message</label>
+      <textarea class="form-textarea" id="contact-message" placeholder="Tell me about your project…"></textarea>
+    </div>
+    <button class="contact-send" type="button" onclick="sendMessage(this)">
+      <span class="contact-send-label">Start Your Project</span>
+      <span class="contact-send-arrow" aria-hidden="true">→</span>
+    </button>
+    <p class="contact-note"><i class="fa-regular fa-clock" aria-hidden="true"></i> I typically respond within 1–2 business days.</p>
   </div>
 </section>
