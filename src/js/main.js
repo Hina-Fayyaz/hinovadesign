@@ -84,13 +84,14 @@ function sendMessage(btn) {
   const email = form.querySelector('input[type=email]').value.trim();
   const msg   = form.querySelector('textarea').value.trim();
   if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
-  btn.textContent = 'Message Sent! ✓';
+  const label = btn.querySelector('.contact-send-label') || btn;
+  label.textContent = 'Message Sent! ✓';
+  btn.classList.add('is-sent');
   btn.style.background = '#fff';
-  btn.style.color = '#1e1e1e';
   setTimeout(function () {
-    btn.textContent = 'Send Message →';
+    label.textContent = 'Start Your Project';
+    btn.classList.remove('is-sent');
     btn.style.background = '';
-    btn.style.color = '';
     form.querySelector('input[type=text]').value  = '';
     form.querySelector('input[type=email]').value = '';
     form.querySelector('textarea').value          = '';
