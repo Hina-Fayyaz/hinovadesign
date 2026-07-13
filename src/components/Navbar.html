@@ -1,12 +1,21 @@
 <nav class="navbar">
   <div class="navbar-pill">
     <img class="navbar-logo" src="assets/images/hinovo%20logo/Hinova_icon_wht_bg.png" alt="Hinova Design" />
-    <div class="navbar-links">
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggle" aria-expanded="false" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+
+    <div class="navbar-links" id="navbarMenu">
       <a href="#hero">Home</a>
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#process">Process</a>
+      <!-- mobile-only CTA (duplicate) -->
+      <a class="navbar-cta-mobile" href="#contact">Book a Call</a>
     </div>
-    <a class="navbar-cta" href="#contact">Book a Call</a>
+
+    <a class="navbar-cta desktop-cta" href="#contact">Book a Call</a>
   </div>
 </nav>

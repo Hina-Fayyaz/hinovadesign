@@ -210,6 +210,40 @@ function initNavRevealOnScroll() {
   window.addEventListener('scroll', reveal, { passive: true });
 }
 
+/* Mobile navigation: toggle collapsed menu on small viewports */
+function initMobileNav() {
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu   = document.querySelector('.navbar-links');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', function () {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) { menu.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    else       { menu.style.display = '';     document.body.style.overflow = ''; }
+  });
+
+  // Close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.style.display = '';
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Reset on resize to desktop
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) {
+      menu.classList.remove('open');
+      menu.style.display = '';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
 /* ═══════════════════════════════════════════
    TESTIMONIALS — duplicate cards for a seamless marquee loop
 ═══════════════════════════════════════════ */
@@ -231,6 +265,7 @@ function initAll() {
   initTestimonials();
   initProcessSection();
   initWhySection();
+  initMobileNav();
   /* expose globals needed by inline onclick attrs in components */
   window.changeSlide  = changeSlide;
   window.sendMessage  = sendMessage;

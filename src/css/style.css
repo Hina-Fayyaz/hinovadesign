@@ -118,6 +118,41 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .navbar-cta:hover { transform: translateY(-2px); opacity: .9; color: #fff; }
 
+/* Mobile toggle button (hidden on desktop) */
+.navbar-toggle {
+  display: none; /* shown in mobile media query */
+  width: 40px; height: 36px; border-radius: 8px; align-items: center; justify-content: center;
+  background: transparent; border: 1px solid rgba(30,30,30,.06);
+  display: inline-flex; cursor: pointer; padding: 6px;
+}
+.navbar-toggle .hamburger {
+  width: 20px; height: 2px; background: rgba(30,30,30,.8); position: relative; display: block; border-radius: 2px;
+}
+.navbar-toggle .hamburger::before,
+.navbar-toggle .hamburger::after {
+  content: '';
+  position: absolute; left: 0; width: 20px; height: 2px; background: rgba(30,30,30,.8); border-radius: 2px;
+}
+.navbar-toggle .hamburger::before { top: -6px; }
+.navbar-toggle .hamburger::after  { top: 6px; }
+
+/* Collapsible menu (desktop shows inline, mobile will hide and become overlay) */
+.navbar-links { display: flex; align-items: center; gap: 30px; }
+.navbar-links.open { display: flex; }
+
+/* mobile-only CTA inside collapsed menu */
+.navbar-cta-mobile { display: none; }
+
+/* Mobile-specific overrides */
+@media (max-width: 900px) {
+  .navbar-toggle { display: inline-flex; margin-left: auto; }
+  .navbar-links { display: none; position: absolute; top: 62px; right: 16px; flex-direction: column; gap: 12px; min-width: 200px; background: rgba(253,252,247,.95); backdrop-filter: blur(10px); border-radius: 12px; padding: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.2); border: 1px solid rgba(0,0,0,.06); }
+  .navbar-links a { color: #1e1e1e; }
+  .navbar-links.open { display: flex; }
+  .navbar-cta-mobile { display: inline-flex; padding: 10px 16px; border-radius: 10px; background: var(--bg-dark); color: #fff; }
+  .desktop-cta { display: none; }
+}
+
 /* ═══════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════ */
