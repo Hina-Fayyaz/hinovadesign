@@ -822,7 +822,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 ═══════════════════════════════════════════ */
 #contact { background: var(--bg-light); padding: 120px 80px; display: flex; gap: 120px; align-items: flex-start; position: relative; overflow: hidden; justify-content: space-between; }
 .contact-left    { flex: 0 0 460px; max-width: 460px; }
-.contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: 1px; line-height: 1.2; margin-bottom: 24px; }
+.contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: -3px; line-height: 1.1; margin-bottom: 24px; }
 .contact-heading .pink { color: var(--primary); }
 .contact-heading .dark { color: var(--text-light); }
 .contact-body    { font-family: var(--font-sans); font-size: 17px; color: rgba(30,30,30,.8); margin: 20px 0 40px; line-height: 1.75; }
