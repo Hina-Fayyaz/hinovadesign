@@ -197,19 +197,6 @@ function initWhySection() {
   obs.observe(section);
 }
 
-/* ═══════════════════════════════════════════
-   REVEAL NAVBAR ON LOAD / SCROLL — STAYS VISIBLE
-═══════════════════════════════════════════ */
-function initNavRevealOnScroll() {
-  const nav = document.querySelector('.navbar');
-  if (!nav) return;
-  function reveal() {
-    nav.classList.add('nav-visible');
-  }
-  reveal(); /* show on initial page load so it's reachable right away */
-  window.addEventListener('scroll', reveal, { passive: true });
-}
-
 /* Mobile navigation: toggle collapsed menu on small viewports */
 function initMobileNav() {
   const toggle = document.querySelector('.navbar-toggle');
@@ -261,7 +248,6 @@ function initAll() {
   initSmoothScroll();
   initActiveNav();
   initSkillsAnimations();
-  initNavRevealOnScroll();
   initTestimonials();
   initProcessSection();
   initWhySection();
