@@ -122,7 +122,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   display: none; /* shown in mobile media query */
   width: 40px; height: 36px; border-radius: 8px; align-items: center; justify-content: center;
   background: transparent; border: 1px solid rgba(30,30,30,.06);
-  display: inline-flex; cursor: pointer; padding: 6px;
+  cursor: pointer; padding: 6px;
 }
 .navbar-toggle .hamburger {
   width: 20px; height: 2px; background: rgba(30,30,30,.8); position: relative; display: block; border-radius: 2px;
