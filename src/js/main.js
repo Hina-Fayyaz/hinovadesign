@@ -76,26 +76,54 @@ function changeSlide(dir) {
 }
 
 /* ═══════════════════════════════════════════
-   CONTACT FORM
+   CONTACT FORM WITH SUPABASE
 ═══════════════════════════════════════════ */
-function sendMessage(btn) {
+async function sendMessage(btn) {
   const form  = btn.closest('.contact-form');
   const name  = form.querySelector('input[type=text]').value.trim();
   const email = form.querySelector('input[type=email]').value.trim();
   const msg   = form.querySelector('textarea').value.trim();
   if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+  
   const label = btn.querySelector('.contact-send-label') || btn;
-  label.textContent = 'Message Sent! ✓';
-  btn.classList.add('is-sent');
-  btn.style.background = '#fff';
-  setTimeout(function () {
-    label.textContent = 'Start Your Project';
-    btn.classList.remove('is-sent');
-    btn.style.background = '';
-    form.querySelector('input[type=text]').value  = '';
-    form.querySelector('input[type=email]').value = '';
-    form.querySelector('textarea').value          = '';
-  }, 3000);
+  btn.disabled = true;
+  label.textContent = 'Sending...';
+  
+  try {
+    const { error } = await window.supabase
+      .from('contact_messages')
+      .insert([
+        {
+          name: name,
+          email: email,
+          message: msg,
+          created_at: new Date().toISOString()
+        }
+      ]);
+    
+    if (error) throw error;
+    
+    label.textContent = 'Message Sent! ✓';
+    btn.classList.add('is-sent');
+    btn.style.background = '#fff';
+    
+    setTimeout(function () {
+      label.textContent = 'Start Your Project';
+      btn.classList.remove('is-sent');
+      btn.style.background = '';
+      btn.disabled = false;
+      form.querySelector('input[type=text]').value  = '';
+      form.querySelector('input[type=email]').value = '';
+      form.querySelector('textarea').value          = '';
+    }, 3000);
+  } catch (err) {
+    console.error('Error sending message:', err);
+    label.textContent = 'Error! Try again.';
+    btn.disabled = false;
+    setTimeout(function () {
+      label.textContent = 'Start Your Project';
+    }, 2000);
+  }
 }
 
 /* ═══════════════════════════════════════════
