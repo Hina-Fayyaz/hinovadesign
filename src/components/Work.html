@@ -16,34 +16,24 @@
         </p>
       </div>
 
-      <div class="work-nav-arrows">
-        <button
-          class="nav-arrow"
-          id="prevArrow"
-          type="button"
-          onclick="changeSlide(-1)"
-          aria-label="View previous portfolio projects"
-        >
-          <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        </button>
-
-        <button
-          class="nav-arrow"
-          id="nextArrow"
-          type="button"
-          onclick="changeSlide(1)"
-          aria-label="View next portfolio projects"
-        >
-          <i class="fas fa-arrow-right" aria-hidden="true"></i>
-        </button>
-      </div>
     </div>
 
-    <div
-      class="work-cards"
-      id="workCarousel"
-      aria-label="Featured portfolio projects"
-    >
+    <div class="work-carousel-shell">
+      <button
+        class="nav-arrow work-side-arrow work-side-arrow-left"
+        id="prevArrow"
+        type="button"
+        onclick="changeSlide(-1)"
+        aria-label="View previous portfolio projects"
+      >
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </button>
+
+      <div
+        class="work-cards"
+        id="workCarousel"
+        aria-label="Featured portfolio projects"
+      >
       <article class="work-card" style="--i: 0">
         <div class="card-media">
           <img
@@ -163,6 +153,17 @@
           <span class="card-label">Worksheets</span>
         </div>
       </article>
+      </div>
+
+      <button
+        class="nav-arrow work-side-arrow work-side-arrow-right"
+        id="nextArrow"
+        type="button"
+        onclick="changeSlide(1)"
+        aria-label="View next portfolio projects"
+      >
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </button>
     </div>
 
   </div>
