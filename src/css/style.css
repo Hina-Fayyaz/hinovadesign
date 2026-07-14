@@ -1076,13 +1076,40 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   /* Services — stack info above the artwork */
   .svc-cards       { gap: 24px; }
   .svc-card,
-  .svc-card-2      { flex-direction: column; align-items: stretch; padding: 34px 26px 40px; gap: 30px; }
-  .svc-info        { padding-right: 48px; }  /* keep clear of the arrow button */
-  .svc-body        { max-width: none; }
-  .svc-media       { height: 230px; }
-  .svc-img         { height: 200px; }
-  .svc-img-back    { height: 175px; transform: rotate(6deg) translateX(40px); }
-  .svc-img-front   { transform: rotate(-4deg) translateX(-30px); }
+  .svc-card-2      {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 34px 26px 40px;
+    gap: 28px;
+  }
+  .svc-info {
+    flex: 0 0 auto;
+    width: 100%;
+    padding-right: 54px; /* keep clear of the arrow button */
+    position: relative;
+    z-index: 2;
+  }
+  .svc-meta        { line-height: 1.6; }
+  .svc-title       { font-size: clamp(30px, 8vw, 38px); line-height: 1.18; }
+  .svc-body        { max-width: none; font-size: 16px; line-height: 1.65; }
+  .svc-media {
+    flex: 0 0 auto;
+    width: 100%;
+    height: clamp(230px, 58vw, 300px);
+    position: relative;
+    z-index: 1;
+  }
+  .svc-img {
+    top: 50%;
+    left: 50%;
+    height: clamp(190px, 50vw, 235px);
+    max-width: 64vw;
+    object-fit: contain;
+  }
+  .svc-img-back  { height: clamp(165px, 44vw, 205px); transform: translate(-34%, -50%) rotate(6deg); }
+  .svc-img-front { transform: translate(-66%, -50%) rotate(-4deg); }
+  .svc-card:hover .svc-img-front { transform: translate(-66%, -50%) rotate(-2deg) translateY(-6px); }
+  .svc-card:hover .svc-img-back  { transform: translate(-34%, -50%) rotate(8deg); }
   .svc-arrow       { top: 20px; right: 20px; width: 42px; height: 42px; }
   /* Process — stack visual above the timeline */
   .process-header  { margin-bottom: 44px; }
@@ -1114,4 +1141,27 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .why-item-text { font-size: 15px; }
   .about-name-heading, .svc-heading, .process-heading, .process-intro-heading,
   .why-heading, .tm-heading, .contact-heading { font-size: 44px; letter-spacing: -1.5px; }
+}
+
+@media (max-width: 520px) {
+  #skills { padding: 64px 16px 72px; }
+  .svc-header { margin-bottom: 36px; }
+  .svc-heading { font-size: 36px; letter-spacing: -1px; }
+  .svc-card,
+  .svc-card-2 {
+    border-radius: 28px;
+    padding: 32px 22px 34px;
+    gap: 24px;
+  }
+  .svc-info { padding-right: 50px; }
+  .svc-meta { font-size: 10px; letter-spacing: 1.8px; }
+  .svc-meta-label { margin-left: 8px; padding-left: 10px; }
+  .svc-title { font-size: 34px; margin: 12px 0 16px; }
+  .svc-body { font-size: 15.5px; line-height: 1.7; }
+  .svc-media { height: 235px; }
+  .svc-img { height: 205px; max-width: 70vw; }
+  .svc-img-back { height: 178px; transform: translate(-31%, -50%) rotate(6deg); }
+  .svc-img-front { transform: translate(-69%, -50%) rotate(-4deg); }
+  .svc-card:hover .svc-img-front { transform: translate(-69%, -50%) rotate(-2deg) translateY(-6px); }
+  .svc-card:hover .svc-img-back { transform: translate(-31%, -50%) rotate(8deg); }
 }
