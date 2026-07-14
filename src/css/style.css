@@ -1054,3 +1054,33 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .about-name-heading, .process-intro-heading,
   .why-heading, .contact-heading { font-size: 44px; letter-spacing: -1.5px; }
 }
+
+
+/* Featured Work — final shape override */
+#work .card-media {
+  aspect-ratio: 0.78;
+  padding: clamp(20px, 1.8vw, 32px);
+  border-radius: 64px;
+}
+
+#work .card-img {
+  max-height: none;
+  border-radius: 22px;
+}
+
+#work .card-label {
+  font-family: var(--font-sans);
+  font-size: clamp(20px, 1.55vw, 28px);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  #work .card-media {
+    padding: 20px;
+    border-radius: 48px;
+  }
+
+  #work .card-label {
+    font-size: 20px;
+  }
+}
