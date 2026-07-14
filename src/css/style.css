@@ -1106,3 +1106,36 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
     font-size: 20px;
   }
 }
+
+/* Featured Work — lock arrows to the screen edges and card-media center */
+.work-carousel-shell .work-side-arrow {
+  position: absolute;
+  top: calc(14px + clamp(192px, 13.46vw, 250px) - 38px);
+  z-index: 30;
+  transform: none;
+  margin: 0;
+}
+
+.work-carousel-shell .work-side-arrow-left {
+  left: 18px;
+  right: auto;
+}
+
+.work-carousel-shell .work-side-arrow-right {
+  right: 18px;
+  left: auto;
+}
+
+@media (max-width: 900px) {
+  .work-carousel-shell .work-side-arrow {
+    top: calc(10px + min(50vw, 205px) - 25px);
+  }
+
+  .work-carousel-shell .work-side-arrow-left {
+    left: 8px;
+  }
+
+  .work-carousel-shell .work-side-arrow-right {
+    right: 8px;
+  }
+}
