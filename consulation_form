@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start a Project — Hinova Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="stylesheet" href="src/css/style.css" />
+<link rel="stylesheet" href="src/css/consultation.css" />
+</head>
+<body class="consult-page">
+
+  <!-- Minimal intro — brand headline on a blank screen, then reveals the flow -->
+  <div id="consultIntro">
+    <h1 class="consult-intro-headline">Let's Build Something<br/><em>Your Audience Will Love</em></h1>
+  </div>
+
+  <!-- Hero -->
+  <section class="consult-hero">
+    <a class="consult-back-link" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <div class="consult-hero-content">
+      <span class="tag">FREE CONSULTATION</span>
+      <h1 class="consult-headline">Let's Build Something<br/><em>Your Audience Will Love</em></h1>
+      <p class="consult-subtitle">Answer a few quick questions so I can understand your project and prepare the best solution for you.</p>
+    </div>
+  </section>
+
+  <div class="consult-container">
+    <!-- Progress -->
+    <div id="progressBar">
+      <div class="progress-header">
+        <span id="progressStepLabel">Step 1 of 6 — Your project</span>
+        <span id="progressPct">17%</span>
+      </div>
+      <div id="progressSegments"></div>
+    </div>
+
+    <!-- Wizard -->
+    <div id="wizardCard">
+      <div class="step-content" id="stepContent"></div>
+      <div class="wizard-nav">
+        <button type="button" class="wizard-back-btn" id="backBtn">Back</button>
+        <button type="button" class="wizard-next-btn" id="nextBtn">Continue</button>
+      </div>
+    </div>
+
+    <!-- Success screen -->
+    <div id="successScreen" class="step-content">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h2 class="success-title">Thank you for your inquiry.</h2>
+      <p class="success-body">Your project request has been received successfully. You'll receive a personalised response within 12–24 hours.</p>
+      <div class="success-checklist">
+        <div class="success-checklist-item"><i class="fas fa-check"></i> Response within 12–24 hours</div>
+        <div class="success-checklist-item"><i class="fas fa-check"></i> Confirmation email on its way</div>
+        <div class="success-checklist-item"><i class="fas fa-check"></i> A tailored plan just for your project</div>
+      </div>
+      <br/>
+      <a class="btn-green" href="index.html" style="font-size:16px; padding:15px 34px;">Return to Homepage</a>
+    </div>
+  </div>
+
+  <script src="src/js/consultation.js"></script>
+</body>
+</html>
