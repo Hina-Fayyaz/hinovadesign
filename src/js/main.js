@@ -34,17 +34,12 @@ async function loadComponents() {
 /* ═══════════════════════════════════════════
    WORK CAROUSEL
 ═══════════════════════════════════════════ */
-const SLIDES = [
-  { src: 'assets/images/Featured%20Work/1.png',  label: 'Course Design'    },
-  { src: 'assets/images/Featured%20Work/2.png',  label: 'Worksheet Design' },
-  { src: 'assets/images/Featured%20Work/3.png',  label: 'Fillable Forms'   },
-];
-let slideIndex = 0;
-
 function changeSlide(dir) {
-  const cards    = document.querySelectorAll('.work-card');
-  const outClass = dir > 0 ? 'slide-out-left'  : 'slide-out-right';
-  const inClass  = dir > 0 ? 'slide-in-right'  : 'slide-in-left';
+  const carousel = document.getElementById('workCarousel');
+  if (!carousel) return;
+
+  const cards = carousel.querySelectorAll('.work-card');
+  if (!cards.length) return;
 
   const arrowId = dir > 0 ? 'nextArrow' : 'prevArrow';
   const arrow   = document.getElementById(arrowId);
@@ -53,24 +48,17 @@ function changeSlide(dir) {
     setTimeout(function () { arrow.classList.remove('clicked'); }, 250);
   }
 
-  cards.forEach(function (card) {
-    card.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-    card.classList.add(outClass);
-  });
+  const gap = parseFloat(getComputedStyle(carousel).columnGap) || 0;
+  const step = cards[0].getBoundingClientRect().width + gap;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
-  setTimeout(function () {
-    slideIndex = (slideIndex + dir + SLIDES.length) % SLIDES.length;
-    cards.forEach(function (card, i) {
-      const s = SLIDES[(slideIndex + i) % SLIDES.length];
-      card.querySelector('.card-img').src            = s.src;
-      card.querySelector('.card-label').textContent  = s.label;
-      card.classList.remove(outClass);
-      card.classList.add(inClass);
-    });
-    setTimeout(function () {
-      cards.forEach(function (card) { card.classList.remove(inClass); });
-    }, 380);
-  }, 280);
+  if (dir > 0 && carousel.scrollLeft >= maxScroll - 4) {
+    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+  } else if (dir < 0 && carousel.scrollLeft <= 4) {
+    carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+  } else {
+    carousel.scrollBy({ left: dir * step, behavior: 'smooth' });
+  }
 }
 
 /* ═══════════════════════════════════════════
