@@ -1060,12 +1060,12 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
 #work .card-media {
   aspect-ratio: 0.78;
   padding: clamp(20px, 1.8vw, 32px);
-  border-radius: 44px;
+  border-radius: 24px;
 }
 
 #work .card-img {
   max-height: none;
-  border-radius: 22px;
+  border-radius: 24px;
 }
 
 #work .card-label {
@@ -1076,7 +1076,7 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
 
 @media (max-width: 900px) {
   #work .card-media {
-    padding: 20px;
+    padding: 10px;
     border-radius: 48px;
   }
 
