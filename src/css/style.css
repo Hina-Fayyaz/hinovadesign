@@ -1247,3 +1247,35 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
     right: 8px;
   }
 }
+
+/* Featured Work — center-align heading content */
+#work .work-header {
+  display: block;
+  width: min(calc(100% - 48px), 1200px);
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+#work .work-header-copy {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#work .section-eyebrow {
+  display: flex;
+  justify-content: center;
+}
+
+#work .work-subtext {
+  max-width: 900px;
+  margin: 18px auto 0;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  #work .work-header {
+    width: calc(100% - 40px);
+    margin-bottom: 42px;
+  }
+}
