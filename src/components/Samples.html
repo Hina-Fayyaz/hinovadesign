@@ -1,95 +1,153 @@
-<section class="samples-section">
-  <div class="samples-header">
-    <p class="samples-eyebrow">Featured Work</p>
-    <h2 class="samples-heading">Work That <em>Speaks</em> for Itself</h2>
-  </div>
+<section id="work">
+  <div class="work-showcase">
 
-  <div class="samples-marquee">
+    <div class="work-header">
+      <div class="work-header-copy">
+        <div class="section-eyebrow">
+          <span class="tag">FEATURED WORK</span>
+        </div>
 
-    <!-- Row 1 — drifts left → right -->
-    <div class="samples-row samples-row-ltr">
-      <div class="samples-track">
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">workbook design</span></div>
-          <img src="assets/images/Featured%20Work/12.png" alt="Workbook design sample" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">course design</span></div>
-          <img src="assets/images/Featured%20Work/13.png" alt="Course design sample" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">digital journal</span></div>
-          <img src="assets/images/Featured%20Work/2.png" alt="Digital journal sample" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">media kit</span></div>
-          <img src="assets/images/Featured%20Work/1.png" alt="Media kit sample" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">nutrition guide</span></div>
-          <img src="assets/images/Featured%20Work/nutrition-starter-pack.png" alt="Nutrition starter pack sample" loading="lazy" />
-        </div>
-        <!-- duplicate set for seamless loop -->
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">workbook design</span></div>
-          <img src="assets/images/Featured%20Work/12.png" alt="" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">course design</span></div>
-          <img src="assets/images/Featured%20Work/13.png" alt="" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">digital journal</span></div>
-          <img src="assets/images/Featured%20Work/2.png" alt="" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">media kit</span></div>
-          <img src="assets/images/Featured%20Work/1.png" alt="" loading="lazy" />
-        </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">nutrition guide</span></div>
-          <img src="assets/images/Featured%20Work/nutrition-starter-pack.png" alt="" loading="lazy" />
-        </div>
+        <p class="section-heading-pink">My work, doing</p>
+        <h2 class="section-heading-white">the talking for me</h2>
+
+        <p class="work-subtext">
+          A selection of thoughtfully designed workbooks, courses,
+          digital resources, and interactive documents.
+        </p>
+      </div>
+
+      <div class="work-nav-arrows">
+        <button
+          class="nav-arrow"
+          id="prevArrow"
+          type="button"
+          onclick="changeSlide(-1)"
+          aria-label="View previous portfolio projects"
+        >
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        </button>
+
+        <button
+          class="nav-arrow"
+          id="nextArrow"
+          type="button"
+          onclick="changeSlide(1)"
+          aria-label="View next portfolio projects"
+        >
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
 
-    <!-- Row 2 — drifts right → left -->
-    <div class="samples-row samples-row-rtl">
-      <div class="samples-track">
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">fillable forms</span></div>
-          <img src="assets/images/Featured%20Work/14.png" alt="Fillable form sample" loading="lazy" />
+    <div
+      class="work-cards"
+      id="workCarousel"
+      aria-label="Featured portfolio projects"
+    >
+      <article class="work-card" style="--i: 0">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/12.png"
+            alt="Interactive workbook design project"
+            loading="eager"
+          />
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">brand guide</span></div>
-          <img src="assets/images/Featured%20Work/15.png" alt="Brand guide sample" loading="lazy" />
+
+        <div class="card-info">
+          <span class="card-label">Workbook Design</span>
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">course kit</span></div>
-          <img src="assets/images/Featured%20Work/3.png" alt="Course kit sample" loading="lazy" />
+      </article>
+
+      <article class="work-card" style="--i: 1">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/13.png"
+            alt="Online course design project"
+            loading="lazy"
+          />
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">workbook design</span></div>
-          <img src="assets/images/Featured%20Work/12.png" alt="Workbook design sample" loading="lazy" />
+
+        <div class="card-info">
+          <span class="card-label">Course Design</span>
         </div>
-        <!-- duplicate set for seamless loop -->
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">fillable forms</span></div>
-          <img src="assets/images/Featured%20Work/14.png" alt="" loading="lazy" />
+      </article>
+
+      <article class="work-card" style="--i: 2">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/2.png"
+            alt="Digital journal design project"
+            loading="lazy"
+          />
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">brand guide</span></div>
-          <img src="assets/images/Featured%20Work/15.png" alt="" loading="lazy" />
+
+        <div class="card-info">
+          <span class="card-label">Digital Journal</span>
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">course kit</span></div>
-          <img src="assets/images/Featured%20Work/3.png" alt="" loading="lazy" />
+      </article>
+
+      <article class="work-card" style="--i: 3">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/14.png"
+            alt="Interactive fillable form project"
+            loading="lazy"
+          />
         </div>
-        <div class="browser-card">
-          <div class="browser-bar"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span><span class="browser-url">workbook design</span></div>
-          <img src="assets/images/Featured%20Work/12.png" alt="" loading="lazy" />
+
+        <div class="card-info">
+          <span class="card-label">Fillable Forms</span>
         </div>
-      </div>
+      </article>
+
+      <article class="work-card" style="--i: 4">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/15.png"
+            alt="Brand guide design project"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="card-info">
+          <span class="card-label">Brand Guide</span>
+        </div>
+      </article>
+
+      <article class="work-card" style="--i: 5">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/3.png"
+            alt="Course resource kit design project"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="card-info">
+          <span class="card-label">Course Kit</span>
+        </div>
+      </article>
+
+      <article class="work-card" style="--i: 6">
+        <div class="card-media">
+          <img
+            class="card-img"
+            src="assets/images/Featured%20Work/nutrition-starter-pack.png"
+            alt="Nutrition starter guide design project"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="card-info">
+          <span class="card-label">Nutrition Guide</span>
+        </div>
+      </article>
     </div>
 
   </div>
