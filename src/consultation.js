@@ -13,12 +13,9 @@ const SERVICES = [
   { id: 'journals',      name: 'Journals',          icon: 'fa-feather',          desc: 'Guided prompts and reflection pages' },
   { id: 'fillablePdf',   name: 'Fillable PDFs',     icon: 'fa-file-signature',   desc: 'Intake, feedback, and onboarding forms' },
   { id: 'interactivePdf',name: 'Interactive PDFs',  icon: 'fa-arrow-pointer',    desc: 'Clickable navigation, links, and embedded media' },
-  { id: 'canvaTemplates',name: 'Canva Templates',   icon: 'fa-swatchbook',       desc: 'Reusable, on-brand templates for your team' },
   { id: 'ebooks',        name: 'E-books',           icon: 'fa-book',             desc: 'Lead magnets and long-form guides' },
   { id: 'courseMaterials', name: 'Course Materials', icon: 'fa-graduation-cap',  desc: 'Slides, handouts, and lesson guides' },
-  { id: 'brandDocuments',name: 'Brand Documents',   icon: 'fa-briefcase',        desc: 'Proposals, handbooks, and SOPs' },
-  { id: 'presentations', name: 'Presentations',     icon: 'fa-display',          desc: 'Pitch decks and internal presentations' },
-  { id: 'sop',           name: 'SOP Documents',     icon: 'fa-list-check',       desc: 'Step-by-step process documentation' },
+  { id: 'brandDocuments',name: 'Brand Documents',   icon: 'fa-briefcase',        desc: 'Proposals, handbooks, and brand guides' },
 ];
 
 /* ── 2. DYNAMIC QUESTION SETS ── one array per service, rendered in Step 3 ── */
@@ -29,7 +26,6 @@ const QUESTIONS = {
     { id: 'audience',       label: 'Audience',             type: 'textarea', placeholder: 'Who is this for?' },
     { id: 'existingContent',label: 'Do you have existing content?', type: 'radio', options: ['Yes, ready to share', 'Partially', 'No, starting fresh'] },
     { id: 'brandGuidelines',label: 'Brand guidelines available?',   type: 'radio', options: ['Yes', 'Partially', 'No'] },
-    { id: 'editableCanva',  label: 'Need an editable Canva file?',  type: 'radio', options: ['Yes', 'No', 'Not sure'] },
     { id: 'printable',      label: 'Need a printable version?',     type: 'radio', options: ['Yes', 'No'] },
     { id: 'deliveryDate',   label: 'Ideal delivery date',  type: 'date' },
   ],
@@ -53,24 +49,13 @@ const QUESTIONS = {
   fillablePdf: [
     { id: 'purpose',        label: 'PDF purpose',            type: 'textarea', required: true, placeholder: 'e.g. New client intake form' },
     { id: 'interactiveFields', label: 'Interactive form fields needed?', type: 'radio', required: true, options: ['Yes', 'No', 'Not sure'] },
-    { id: 'calculations',   label: 'Any calculations needed?',   type: 'radio', options: ['Yes', 'No'] },
-    { id: 'conditionalLogic', label: 'Conditional logic needed? (fields that show/hide based on answers)', type: 'radio', options: ['Yes', 'No', 'Not sure'] },
     { id: 'signatures',     label: 'Digital signatures needed?', type: 'radio', options: ['Yes', 'No'] },
-    { id: 'emailIntegration', label: 'Auto email integration needed?', type: 'radio', options: ['Yes', 'No', 'Not sure'] },
     { id: 'deliveryDate',   label: 'Ideal delivery date', type: 'date' },
   ],
   interactivePdf: [
     { id: 'purpose',      label: 'What is this PDF for?',    type: 'textarea', required: true, placeholder: 'e.g. Interactive lookbook with clickable links' },
-    { id: 'elements',     label: 'Interactive elements needed', type: 'checkbox', options: ['Clickable buttons', 'Internal navigation links', 'Embedded video', 'External links'] },
     { id: 'pages',        label: 'Approximate number of pages', type: 'radio', options: ['Under 15', '15–40', '40+'] },
     { id: 'fillableFields', label: 'Fillable fields also needed?', type: 'radio', options: ['Yes', 'No'] },
-    { id: 'deliveryDate', label: 'Ideal delivery date', type: 'date' },
-  ],
-  canvaTemplates: [
-    { id: 'templateType', label: 'Template type', type: 'text', required: true, placeholder: 'e.g. Instagram carousel templates' },
-    { id: 'count',        label: 'Number of templates', type: 'radio', required: true, options: ['1–5', '6–15', '15+', 'Not sure yet'] },
-    { id: 'brandKit',     label: 'Do you have a brand kit ready (logo, colours, fonts)?', type: 'radio', options: ['Yes', 'Partially', 'No'] },
-    { id: 'usage',        label: 'What will these be used for?', type: 'textarea' },
     { id: 'deliveryDate', label: 'Ideal delivery date', type: 'date' },
   ],
   ebooks: [
@@ -91,26 +76,10 @@ const QUESTIONS = {
     { id: 'deliveryDate',label: 'Ideal delivery date', type: 'date' },
   ],
   brandDocuments: [
-    { id: 'docType',    label: 'Document type', type: 'text', required: true, placeholder: 'e.g. Brand guidelines, proposal template, SOP' },
+    { id: 'docType',    label: 'Document type', type: 'text', required: true, placeholder: 'e.g. Brand guidelines, proposal template, handbook' },
     { id: 'pages',      label: 'Approximate length', type: 'radio', options: ['Under 10 pages', '10–25 pages', '25+ pages', 'Not sure yet'] },
     { id: 'assets',     label: 'Existing brand assets available?', type: 'radio', options: ['Yes', 'Partially', 'No'] },
     { id: 'audience',   label: 'Who is this document for?', type: 'textarea' },
-    { id: 'deliveryDate', label: 'Ideal delivery date', type: 'date' },
-  ],
-  presentations: [
-    { id: 'platform',   label: 'Platform', type: 'radio', required: true, options: ['PowerPoint', 'Google Slides', 'Keynote', 'Canva'] },
-    { id: 'slideCount', label: 'Number of slides', type: 'radio', required: true, options: ['Under 15', '15–30', '30+', 'Not sure yet'] },
-    { id: 'purpose',    label: 'Purpose', type: 'radio', options: ['Pitch / sales', 'Internal / training', 'Conference / event', 'Other'] },
-    { id: 'animation',  label: 'Animated transitions needed?', type: 'radio', options: ['Yes', 'No', 'Not sure'] },
-    { id: 'existingContent', label: 'Do you have existing content?', type: 'radio', options: ['Yes', 'Partially', 'No'] },
-    { id: 'deliveryDate', label: 'Ideal delivery date', type: 'date' },
-  ],
-  sop: [
-    { id: 'processName', label: 'Process / topic name', type: 'text', required: true, placeholder: 'e.g. Client onboarding process' },
-    { id: 'procedureCount', label: 'Number of procedures to document', type: 'radio', options: ['1–3', '4–10', '10+', 'Not sure yet'] },
-    { id: 'audience',   label: 'Who will use this?', type: 'radio', options: ['Internal team', 'Clients', 'Both'] },
-    { id: 'existingContent', label: 'Do you have existing content/notes?', type: 'radio', options: ['Yes', 'Partially', 'No'] },
-    { id: 'visuals',    label: 'Diagrams or screenshots needed?', type: 'radio', options: ['Yes', 'No', 'Not sure'] },
     { id: 'deliveryDate', label: 'Ideal delivery date', type: 'date' },
   ],
 };
