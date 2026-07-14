@@ -78,48 +78,81 @@ function changeSlide(dir) {
 /* ═══════════════════════════════════════════
    CONTACT FORM WITH SUPABASE
 ═══════════════════════════════════════════ */
+const SUPABASE_URL = 'https://opwbpmqpgudwzssvkotk.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
+
 async function sendMessage(btn) {
-  const form  = btn.closest('.contact-form');
-  const name  = form.querySelector('input[type=text]').value.trim();
-  const email = form.querySelector('input[type=email]').value.trim();
-  const msg   = form.querySelector('textarea').value.trim();
-  if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
-  
+  const form = btn.closest('.contact-form');
+
+  const nameInput = form.querySelector('#contact-name');
+  const emailInput = form.querySelector('#contact-email');
+  const messageInput = form.querySelector('#contact-message');
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (!emailInput.checkValidity()) {
+    alert('Please enter a valid email address.');
+    emailInput.focus();
+    return;
+  }
+
   const label = btn.querySelector('.contact-send-label') || btn;
+
   btn.disabled = true;
   label.textContent = 'Sending...';
-  
+
   try {
-    const { error } = await window.supabase
-      .from('contact_messages')
-      .insert([
-        {
-          name: name,
-          email: email,
-          message: msg,
-          created_at: new Date().toISOString()
-        }
-      ]);
-    
-    if (error) throw error;
-    
+    const response = await fetch(
+      SUPABASE_URL + '/rest/v1/leads',
+      {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        'Lead submission failed with status ' + response.status
+      );
+    }
+
     label.textContent = 'Message Sent! ✓';
     btn.classList.add('is-sent');
     btn.style.background = '#fff';
-    
+
+    nameInput.value = '';
+    emailInput.value = '';
+    messageInput.value = '';
+
     setTimeout(function () {
       label.textContent = 'Start Your Project';
       btn.classList.remove('is-sent');
       btn.style.background = '';
       btn.disabled = false;
-      form.querySelector('input[type=text]').value  = '';
-      form.querySelector('input[type=email]').value = '';
-      form.querySelector('textarea').value          = '';
     }, 3000);
-  } catch (err) {
-    console.error('Error sending message:', err);
+  } catch (error) {
+    console.error('Error sending message:', error);
+
     label.textContent = 'Error! Try again.';
     btn.disabled = false;
+
     setTimeout(function () {
       label.textContent = 'Start Your Project';
     }, 2000);
