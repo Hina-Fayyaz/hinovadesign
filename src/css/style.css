@@ -1044,11 +1044,11 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
   .hero-video-frame-inner { border-radius: 20px; }
   .hero-browser-bar       { padding: 10px 14px; }
   .hero-browser-dot       { width: 9px; height: 9px; }
-  .hero-stats-row  { grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
-  .hero-stat       { padding: 20px 16px; }
-  .hero-stat-num   { font-size: 28px; }
-  .hero-stat-star  { font-size: 18px; }
-  .hero-stat-label { font-size: 12px; margin-top: 6px; }
+  .hero-stats-row  { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 12px; }
+  .hero-stat       { padding: 12px 5px; border-radius: 14px; min-width: 0; }
+  .hero-stat-num   { font-size: 20px; line-height: 1; }
+  .hero-stat-star  { font-size: 12px; }
+  .hero-stat-label { font-size: 6.8px; line-height: 1.18; letter-spacing: .25px; margin-top: 5px; overflow-wrap: anywhere; }
   .samples-section     { padding: 64px 0 70px; border-radius: 28px 28px 0 0; }
   .samples-header      { margin-bottom: 40px; }
   .samples-marquee     { gap: 22px; }
@@ -1144,6 +1144,11 @@ footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-i
 }
 
 @media (max-width: 520px) {
+  .hero-stats-row { gap: 5px; }
+  .hero-stat { padding: 10px 4px; border-radius: 12px; }
+  .hero-stat-num { font-size: 18px; }
+  .hero-stat-star { font-size: 11px; }
+  .hero-stat-label { font-size: 6px; letter-spacing: .15px; }
   #skills { padding: 64px 16px 72px; }
   .svc-header { margin-bottom: 36px; }
   .svc-heading { font-size: 36px; letter-spacing: -1px; }
