@@ -820,7 +820,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════ */
-#contact { background: var(--bg-light); padding: 120px 80px; display: flex; gap: 120px; align-items: flex-start; position: relative; overflow: hidden; justify-content: space-between; }
+#contact { background: var(--bg-light); padding: 110px 100px; display: flex; gap: 56px; align-items: flex-start; position: relative; overflow: hidden; justify-content: center; }
 .contact-left    { flex: 0 0 460px; max-width: 460px; }
 .contact-heading { font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: clamp(44px, 5.2vw, 72px); letter-spacing: -3px; line-height: 1.1; margin-bottom: 24px; }
 .contact-heading .pink { color: var(--primary); }
@@ -832,12 +832,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .contact-email-bar > span { font-family: var(--font-sans); font-weight: 600; font-size: 15.5px; color: #fff; }
 
 .contact-form {
-  background: #0f0f0f; border-radius: 30px; padding: 60px;
+  background: #0f0f0f; border-radius: 30px; padding: 40px 60px 48px;
   flex: 0 0 600px; max-width: 600px; min-width: 0;
   box-shadow: 0 40px 90px -35px rgba(0,0,0,.55), inset 0 1px 0 rgba(241,239,229,.08);
   border: 1px solid rgba(241,239,229,.08);
 }
-.form-label   { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--secondary); margin-bottom: 12px; }
+.form-label   { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--secondary); margin-bottom: 6px; }
 .form-input, .form-textarea {
   width: 100%; background: var(--bg-light);
   border: 1px solid transparent; border-radius: 14px;
@@ -848,7 +848,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .form-input::placeholder, .form-textarea::placeholder { color: #8a8a80; }
 .form-input:focus, .form-textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(190,232,42,.22); }
 .form-textarea { height: 150px; resize: none; }
-.form-group    { margin-bottom: 28px; }
+.form-group    { margin-bottom: 18px; }
 
 /* ── animated submit button ── */
 .contact-send {
