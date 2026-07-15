@@ -18,18 +18,24 @@
     <h1 class="consult-intro-headline">Let's Build Something<br/><em>Your Audience Will Love</em></h1>
   </div>
 
-  <header class="consult-header">
-  <a class="consult-logo-link" href="index.html" aria-label="Hinova Design home">
-    <img class="consult-logo" src="assets/images/hinovo%20logo/Hinova_icon_wht_bg.png" alt="Hinova Design" />
-    <span>Hinova Design</span>
-  </a>
+  <nav class="navbar">
+  <div class="navbar-pill">
+    <a href="index.html" aria-label="Hinova Design home">
+      <img class="navbar-logo" src="assets/images/hinovo%20logo/Hinova_icon_wht_bg.png" alt="Hinova Design" />
+    </a>
 
-  <nav class="consult-nav" aria-label="Consultation navigation">
-    <a href="index.html#work">Work</a>
-    <a href="index.html#process">Process</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-</header>
+    <button class="navbar-toggle" aria-expanded="false" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+
+    <div class="navbar-links" id="navbarMenu">
+      <a href="index.html#hero">Home</a>
+      <a class="navbar-cta-mobile" href="index.html#contact">Contact Me</a>
+    </div>
+
+    <a class="navbar-cta desktop-cta" href="index.html#contact">Contact Me</a>
+  </div>
+</nav>
   
   <!-- Hero -->
   <section class="consult-hero">
@@ -74,19 +80,25 @@
     </div>
   </div>
 
-  <footer class="consult-footer">
-  <div class="consult-footer-brand">
-    <img class="consult-footer-logo" src="assets/images/hinovo%20logo/Hinova_icon_blk_bg.png" alt="Hinova Design" />
-    <p>Beautiful learning materials, workbooks, and interactive PDFs designed with care.</p>
-  </div>
-
-  <div class="consult-footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#contact">Contact</a>
+  <footer>
+  <img class="footer-logo" src="assets/images/hinovo%20logo/Hinova_blk_bg.png" alt="Hinova Design" />
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/hinafayyaz" target="_blank" class="footer-social-btn" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.upwork.com" target="_blank" class="footer-social-btn" aria-label="Upwork">
+      <i class="fas fa-briefcase"></i>
+    </a>
+    <a href="https://www.behance.net" target="_blank" class="footer-social-btn" aria-label="Behance">
+      <i class="fab fa-behance"></i>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" class="footer-social-btn" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
 </footer>
 
+  <link rel="stylesheet" href="src/css/style.css" />
   <script src="src/consultation.js"></script>
 </body>
 </html>
