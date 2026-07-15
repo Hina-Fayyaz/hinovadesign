@@ -1046,11 +1046,67 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* ═══════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════ */
-footer { background: var(--bg-dark); padding: 26px 100px; display: flex; align-items: center; justify-content: space-between; }
-.footer-logo { height: 96px; width: auto; object-fit: contain; }
-.footer-social { display: flex; gap: 16px; }
-.footer-social-btn { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: var(--secondary); font-size: 1.4rem; transition: background .2s, color .2s; }
-.footer-social-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+footer {
+  background: var(--bg-dark);
+  padding: 26px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  height: 96px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: var(--secondary);
+  font-size: 1.4rem;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.footer-social-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.footer-upwork-btn .upwork-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.footer-upwork-btn .upwork-icon-white {
+  position: absolute;
+  opacity: 0;
+}
+
+.footer-upwork-btn:hover .upwork-icon-lime {
+  opacity: 0;
+  transform: scale(.92);
+}
+
+.footer-upwork-btn:hover .upwork-icon-white {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* ═══════════════════════════════════════════
    RESPONSIVE — TABLET (≤1100px)
