@@ -500,32 +500,81 @@ function goBack() {
    to your backend/CRM/email service. Payload is already
    structured and ready to send as JSON.
 ═══════════════════════════════════════════════════════════ */
-function submitConsultation() {
+const CONSULTATION_SUPABASE_URL =
+  'https://opwbpmqpgudwzssvkotk.supabase.co';
+
+const CONSULTATION_SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
+
+async function submitConsultation() {
   const payload = {
     service: state.service,
-    about: state.about,
-    project: state.project,
-    style: state.style,
-    files: state.files,
-    logistics: state.logistics,
-    submittedAt: new Date().toISOString(),
+    first_name: state.about.firstName,
+    last_name: state.about.lastName || null,
+    email: state.about.email,
+    business: state.about.business || null,
+    website: state.about.website || null,
+    brand_status: state.about.brandStatus || null,
+    project_details: state.project,
+    style_details: state.style,
+    file_names: state.files,
+    timeline: state.logistics.timeline,
+    budget: state.logistics.budget,
+    priority: state.logistics.priority || null,
+    communication: state.logistics.communication || null
   };
-  console.log('Consultation payload ready to send:', payload);
 
   const nextBtn = document.getElementById('nextBtn');
+  const originalLabel = nextBtn.textContent;
+
   nextBtn.disabled = true;
   nextBtn.textContent = 'Sending…';
 
-  /* simulated network request — replace with a real fetch() call */
-  setTimeout(() => {
+  try {
+    const response = await fetch(
+      CONSULTATION_SUPABASE_URL +
+        '/rest/v1/consultation_requests',
+      {
+        method: 'POST',
+        headers: {
+          apikey: CONSULTATION_SUPABASE_PUBLISHABLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        'Consultation submission failed with status ' +
+          response.status
+      );
+    }
+
     document.getElementById('wizardCard').style.display = 'none';
     document.getElementById('progressBar').style.display = 'none';
+
     const success = document.getElementById('successScreen');
     success.style.display = 'block';
+
     void success.offsetWidth;
     success.classList.add('step-enter');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 900);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } catch (error) {
+    console.error('Error submitting consultation:', error);
+
+    nextBtn.disabled = false;
+    nextBtn.textContent = originalLabel;
+
+    alert(
+      'Your request could not be sent. Please check your connection and try again.'
+    );
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
