@@ -2,8 +2,8 @@
    HINOVA DESIGN — PROJECT CONSULTATION FLOW
    Config-driven multi-step wizard. No framework — vanilla JS,
    built to mirror the feel of Framer Motion transitions using
-   CSS. Structured so `submitConsultation()` is the single spot
-   to wire up a real backend/API later.
+   CSS. Consultation details and private file uploads are sent to
+   Supabase, then synchronized to the studio's Notion workspace.
 ═══════════════════════════════════════════════════════════ */
 
 /* ── 1. SERVICES ── shown as cards in Step 1 ── */
@@ -257,11 +257,13 @@ function fileFieldWrapper(key, label, helper) {
     <p class="field-helper">${helper}</p>
     <label class="file-drop" for="file-${key}">
       <i class="fas fa-cloud-arrow-up"></i>
-      <span>Click to upload or drag files here</span>
-      <input type="file" id="file-${key}" data-filekey="${key}" multiple style="display:none;" />
+      <span>Choose PDF, Word, PNG, JPEG or WebP files</span>
+      <small>Maximum 10 MB per file · 5 files per request</small>
+      <input type="file" id="file-${key}" data-filekey="${key}" multiple
+        accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" style="display:none;" />
     </label>
     <div class="file-chip-row" id="chips-${key}">
-      ${files.map((f, i) => `<span class="file-chip">${f}<button type="button" class="file-chip-remove" data-key="${key}" data-index="${i}">&times;</button></span>`).join('')}
+      ${files.map((f, i) => `<span class="file-chip">${escapeHtml(f.name)}<button type="button" class="file-chip-remove" data-key="${key}" data-index="${i}" aria-label="Remove ${escapeHtml(f.name)}">&times;</button></span>`).join('')}
     </div>
   </div>`;
 }
@@ -300,11 +302,11 @@ function renderReview() {
 
     <div class="review-block">
       <div class="review-block-head"><span>Design style</span><button type="button" class="review-edit" data-jump="4">Edit</button></div>
-      <div class="review-row"><span class="review-key">Inspiration files</span><span class="review-val">${state.files.inspiration.length ? state.files.inspiration.join(', ') : '—'}</span></div>
+      <div class="review-row"><span class="review-key">Inspiration files</span><span class="review-val">${fileNames(state.files.inspiration)}</span></div>
       <div class="review-row"><span class="review-key">Preferred colours</span><span class="review-val">${state.style.colours || '—'}</span></div>
       <div class="review-row"><span class="review-key">Reference sites</span><span class="review-val">${state.style.referenceSites || '—'}</span></div>
-      <div class="review-row"><span class="review-key">Branding assets</span><span class="review-val">${state.files.branding.length ? state.files.branding.join(', ') : '—'}</span></div>
-      <div class="review-row"><span class="review-key">Logo</span><span class="review-val">${state.files.logo.length ? state.files.logo.join(', ') : '—'}</span></div>
+      <div class="review-row"><span class="review-key">Branding assets</span><span class="review-val">${fileNames(state.files.branding)}</span></div>
+      <div class="review-row"><span class="review-key">Logo</span><span class="review-val">${fileNames(state.files.logo)}</span></div>
       <div class="review-row"><span class="review-key">Notes</span><span class="review-val">${state.style.notes || '—'}</span></div>
     </div>
 
@@ -360,8 +362,17 @@ function attachStepListeners() {
   document.querySelectorAll('input[type="file"]').forEach(input => {
     input.addEventListener('change', () => {
       const key = input.dataset.filekey;
-      const names = Array.from(input.files).map(f => f.name);
-      state.files[key] = state.files[key].concat(names);
+      const selected = Array.from(input.files);
+      const currentTotal = Object.values(state.files).flat().length;
+      const remaining = Math.max(0, MAX_TOTAL_FILES - currentTotal);
+      const validFiles = selected.filter(isAllowedFile).slice(0, remaining);
+
+      if (validFiles.length !== selected.length) {
+        alert('Please add up to 5 files in PDF, Word, PNG, JPEG or WebP format, with each file under 10 MB.');
+      }
+
+      state.files[key] = state.files[key].concat(validFiles);
+      input.value = '';
       renderFileChips(key);
     });
   });
@@ -376,7 +387,7 @@ function renderFileChips(key) {
   const wrap = document.getElementById(`chips-${key}`);
   if (!wrap) return;
   wrap.innerHTML = state.files[key].map((f, i) =>
-    `<span class="file-chip">${f}<button type="button" class="file-chip-remove" data-key="${key}" data-index="${i}">&times;</button></span>`
+    `<span class="file-chip">${escapeHtml(f.name)}<button type="button" class="file-chip-remove" data-key="${key}" data-index="${i}" aria-label="Remove ${escapeHtml(f.name)}">&times;</button></span>`
   ).join('');
   wrap.querySelectorAll('.file-chip-remove').forEach(b => {
     b.addEventListener('click', () => {
@@ -496,9 +507,8 @@ function goBack() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SUBMIT — API-ready: swap the setTimeout for a real fetch()
-   to your backend/CRM/email service. Payload is already
-   structured and ready to send as JSON.
+   SUBMIT — files are uploaded to a private bucket first. The
+   database record stores only safe metadata and private paths.
 ═══════════════════════════════════════════════════════════ */
 const CONSULTATION_SUPABASE_URL =
   'https://opwbpmqpgudwzssvkotk.supabase.co';
@@ -506,31 +516,109 @@ const CONSULTATION_SUPABASE_URL =
 const CONSULTATION_SUPABASE_PUBLISHABLE_KEY =
   'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
 
+const CONSULTATION_FILES_BUCKET = 'consultation-files';
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_TOTAL_FILES = 5;
+const ALLOWED_FILE_TYPES = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'image/jpeg',
+  'image/png',
+  'image/webp'
+]);
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>'"]/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+  })[char]);
+}
+
+function fileNames(files) {
+  return files.length ? files.map(file => escapeHtml(file.name)).join(', ') : '—';
+}
+
+function isAllowedFile(file) {
+  return ALLOWED_FILE_TYPES.has(file.type) && file.size > 0 && file.size <= MAX_FILE_SIZE;
+}
+
+function safeFileName(name) {
+  const lastDot = name.lastIndexOf('.');
+  const extension = lastDot >= 0 ? name.slice(lastDot).toLowerCase() : '';
+  const base = (lastDot >= 0 ? name.slice(0, lastDot) : name)
+    .normalize('NFKD')
+    .replace(/[^a-zA-Z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80) || 'file';
+  return base + extension;
+}
+
+async function uploadConsultationFiles(submissionId) {
+  const uploaded = { inspiration: [], branding: [], logo: [] };
+
+  for (const [category, files] of Object.entries(state.files)) {
+    for (const file of files) {
+      const objectPath = `${submissionId}/${category}/${crypto.randomUUID()}-${safeFileName(file.name)}`;
+      const encodedPath = objectPath.split('/').map(encodeURIComponent).join('/');
+      const response = await fetch(
+        `${CONSULTATION_SUPABASE_URL}/storage/v1/object/${CONSULTATION_FILES_BUCKET}/${encodedPath}`,
+        {
+          method: 'POST',
+          headers: {
+            apikey: CONSULTATION_SUPABASE_PUBLISHABLE_KEY,
+            Authorization: `Bearer ${CONSULTATION_SUPABASE_PUBLISHABLE_KEY}`,
+            'Content-Type': file.type,
+            'x-upsert': 'false'
+          },
+          body: file
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`File upload failed with status ${response.status}`);
+      }
+
+      uploaded[category].push({
+        name: file.name,
+        path: objectPath,
+        type: file.type,
+        size: file.size
+      });
+    }
+  }
+
+  return uploaded;
+}
+
 async function submitConsultation() {
-  const payload = {
-    service: state.service,
-    first_name: state.about.firstName,
-    last_name: state.about.lastName || null,
-    email: state.about.email,
-    business: state.about.business || null,
-    website: state.about.website || null,
-    brand_status: state.about.brandStatus || null,
-    project_details: state.project,
-    style_details: state.style,
-    file_names: state.files,
-    timeline: state.logistics.timeline,
-    budget: state.logistics.budget,
-    priority: state.logistics.priority || null,
-    communication: state.logistics.communication || null
-  };
+  const submissionId = crypto.randomUUID();
 
   const nextBtn = document.getElementById('nextBtn');
   const originalLabel = nextBtn.textContent;
 
   nextBtn.disabled = true;
-  nextBtn.textContent = 'Sending…';
+  nextBtn.textContent = 'Uploading & sending…';
 
   try {
+    const uploadedFiles = await uploadConsultationFiles(submissionId);
+    const payload = {
+      id: submissionId,
+      service: state.service,
+      first_name: state.about.firstName,
+      last_name: state.about.lastName || null,
+      email: state.about.email,
+      business: state.about.business || null,
+      website: state.about.website || null,
+      brand_status: state.about.brandStatus || null,
+      project_details: state.project,
+      style_details: state.style,
+      file_names: uploadedFiles,
+      timeline: state.logistics.timeline,
+      budget: state.logistics.budget,
+      priority: state.logistics.priority || null,
+      communication: state.logistics.communication || null
+    };
+
     const response = await fetch(
       CONSULTATION_SUPABASE_URL +
         '/rest/v1/consultation_requests',
