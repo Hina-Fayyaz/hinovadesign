@@ -970,7 +970,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .contact-heading .dark { color: var(--text-light); }
 .contact-body    { font-family: var(--font-sans); font-size: 17px; color: rgba(30,30,30,.8); margin: 20px 0 40px; line-height: 1.75; }
 
-.contact-email-bar   { position: relative; background: var(--bg-dark); border-radius: 999px; display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; box-shadow: 0 16px 36px -16px rgba(30,30,30,.45); }
+.contact-email-bar   { position: relative; background: var(--bg-dark); border-radius: 999px; display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; box-shadow: 0 16px 36px -16px rgba(30,30,30,.45); text-decoration: none; }
 .contact-email-bar i { font-size: 1rem; color: #1e1e1e; background: var(--secondary); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .contact-email-bar > span { font-family: var(--font-sans); font-weight: 600; font-size: 15.5px; color: #fff; }
 

@@ -203,6 +203,7 @@
 }
 .file-drop:hover { border-color: var(--primary); background: #fff8fb; }
 .file-drop i { font-size: 22px; color: var(--primary); }
+.file-drop small { display: block; color: #666; font-size: 12px; margin-top: 4px; }
 .file-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .file-chip {
   display: inline-flex; align-items: center; gap: 8px;
