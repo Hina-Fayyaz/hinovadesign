@@ -247,7 +247,8 @@ function renderStep() {
   attachStepListeners();
   updateNavButtons();
   renderProgress();
-  window.scrollTo({ top: document.getElementById('wizardCard').offsetTop - 40, behavior: 'smooth' });
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: document.getElementById('wizardCard').offsetTop - 40, behavior: reduced ? 'auto' : 'smooth' });
 }
 
 function fileFieldWrapper(key, label, helper) {
@@ -491,7 +492,7 @@ function validateStep() {
 function updateNavButtons() {
   document.getElementById('backBtn').style.visibility = state.step === 1 ? 'hidden' : 'visible';
   const nextBtn = document.getElementById('nextBtn');
-  nextBtn.textContent = state.step === TOTAL_STEPS ? 'Submit Request' : 'Continue';
+  nextBtn.querySelector('.wizard-next-label').textContent = state.step === TOTAL_STEPS ? 'Submit Request' : 'Continue';
 }
 
 function goNext() {
@@ -594,10 +595,11 @@ async function submitConsultation() {
   const submissionId = crypto.randomUUID();
 
   const nextBtn = document.getElementById('nextBtn');
-  const originalLabel = nextBtn.textContent;
+  const nextLabel = nextBtn.querySelector('.wizard-next-label');
+  const originalLabel = nextLabel.textContent;
 
   nextBtn.disabled = true;
-  nextBtn.textContent = 'Uploading & sending…';
+  nextLabel.textContent = 'Uploading & sending…';
 
   try {
     const uploadedFiles = await uploadConsultationFiles(submissionId);
@@ -651,13 +653,13 @@ async function submitConsultation() {
 
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
     });
   } catch (error) {
     console.error('Error submitting consultation:', error);
 
     nextBtn.disabled = false;
-    nextBtn.textContent = originalLabel;
+    nextLabel.textContent = originalLabel;
 
     alert(
       'Your request could not be sent. Please check your connection and try again.'
@@ -673,6 +675,11 @@ async function submitConsultation() {
 function initIntro() {
   const intro = document.getElementById('consultIntro');
   if (!intro) return;
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    intro.classList.add('intro-done');
+    return;
+  }
   setTimeout(() => {
     intro.classList.add('intro-done');
     setTimeout(() => {
