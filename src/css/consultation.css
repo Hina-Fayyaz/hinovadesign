@@ -2,7 +2,7 @@
    CONSULTATION FLOW
    Extends the tokens/utilities already defined in style.css
    (--primary, --secondary, --bg-dark, --bg-light, fonts, .tag,
-   .btn-pink, etc.) — no new palette introduced.
+   and the shared button system) — no new palette introduced.
 ═══════════════════════════════════════════════════════════ */
 
 /* ── Minimal intro — plays once on page load ── */
@@ -94,7 +94,7 @@
 }
 .step-eyebrow {
   font-family: var(--font-mono); font-weight: 700; font-size: 12.5px;
-  letter-spacing: 2px; color: var(--primary); display: block; margin-bottom: 14px;
+  letter-spacing: 2px; color: var(--primary-text); display: block; margin-bottom: 14px;
 }
 .step-title {
   font-family: var(--font-serif); font-weight: 700; font-size: 36px;
@@ -138,7 +138,7 @@
   display: flex; align-items: center; justify-content: center; font-size: 15px;
   transition: background .25s ease, color .25s ease;
 }
-.service-card.is-selected .service-card-icon { background: var(--primary); color: #fff; }
+.service-card.is-selected .service-card-icon { background: var(--primary); color: #1e1e1e; }
 .service-card-name { font-family: var(--font-serif); font-weight: 700; font-size: 17px; color: #101010; }
 .service-card-desc { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
@@ -146,7 +146,7 @@
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .field-group { margin-bottom: 28px; }
 .field-label { font-family: var(--font-sans); font-weight: 700; font-size: 14.5px; color: #101010; display: block; margin-bottom: 4px; }
-.req-star { color: var(--primary); }
+.req-star { color: var(--primary-text); }
 .field-helper { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
 
 .wizard-input, .wizard-textarea {
@@ -181,7 +181,7 @@
   display: flex; align-items: center; justify-content: center; font-size: 11px; color: transparent;
   transition: border-color .2s ease, background .2s ease, color .2s ease;
 }
-.option-row.is-selected .option-check-box { border-color: var(--primary); background: var(--primary); color: #fff; }
+.option-row.is-selected .option-check-box { border-color: var(--primary); background: var(--primary); color: #1e1e1e; }
 .option-row span:last-child { font-family: var(--font-sans); font-size: 15px; color: #1e1e1e; }
 
 /* inline validation */
@@ -202,7 +202,7 @@
   font-family: var(--font-sans); font-size: 14px; color: var(--text-muted);
 }
 .file-drop:hover { border-color: var(--primary); background: #fff8fb; }
-.file-drop i { font-size: 22px; color: var(--primary); }
+.file-drop i { font-size: 22px; color: var(--primary-text); }
 .file-drop small { display: block; color: #666; font-size: 12px; margin-top: 4px; }
 .file-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .file-chip {
@@ -210,7 +210,7 @@
   background: var(--bg-dark); color: #fff; font-family: var(--font-sans); font-size: 12.5px;
   padding: 7px 12px; border-radius: 999px;
 }
-.file-chip-remove { background: none; border: none; color: var(--secondary); font-size: 15px; cursor: pointer; line-height: 1; }
+.file-chip-remove { min-width: 44px; min-height: 44px; margin: -10px -12px -10px 0; background: none; border: none; color: var(--secondary); font-size: 18px; cursor: pointer; line-height: 1; }
 
 /* ── Review ── */
 .review-block { border-top: 1px solid rgba(0,0,0,.07); padding: 22px 0; }
@@ -218,7 +218,8 @@
 .review-block-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .review-block-head span { font-family: var(--font-serif); font-weight: 700; font-size: 18px; color: #101010; }
 .review-edit {
-  font-family: var(--font-sans); font-weight: 600; font-size: 13px; color: var(--primary);
+  min-width: 44px; min-height: 44px; padding: 8px;
+  font-family: var(--font-sans); font-weight: 700; font-size: 13px; color: var(--primary-text);
   background: none; border: none; cursor: pointer;
 }
 .review-edit:hover { text-decoration: underline; }
@@ -230,23 +231,25 @@
 /* ── Nav buttons ── */
 .wizard-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 44px; }
 .wizard-back-btn {
+  min-height: 44px;
   font-family: var(--font-sans); font-weight: 600; font-size: 15px; color: var(--text-muted);
   background: none; border: none; cursor: pointer; padding: 12px 8px;
   transition: color .2s ease;
 }
 .wizard-back-btn:hover { color: #1e1e1e; }
 .wizard-next-btn {
-  background: var(--primary); color: #fff;
+  background: var(--bg-dark); color: #fff;
   font-family: var(--font-sans); font-weight: 700; font-size: 16px;
-  padding: 16px 38px; border-radius: 999px; border: none; cursor: pointer;
-  box-shadow: 0 14px 30px rgba(253,81,171,.28);
+  padding: 10px 12px 10px 28px; border-radius: 999px; border: 2px solid var(--bg-dark); cursor: pointer;
+  box-shadow: 0 14px 30px rgba(30,30,30,.2);
   transition: transform .3s cubic-bezier(0.34,1.56,0.64,1), box-shadow .3s ease, opacity .2s ease;
 }
-.wizard-next-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 38px rgba(253,81,171,.38); }
+.wizard-next-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(30,30,30,.28); }
 .wizard-next-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
 
 /* ── Success screen ── */
 #successScreen { display: none; text-align: center; padding: 100px 24px 120px; }
+.success-home-link { margin-top: 8px; }
 .success-icon {
   width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 32px;
   background: linear-gradient(135deg, var(--secondary), #a8d420);
@@ -282,6 +285,12 @@
   .wizard-nav { flex-direction: column-reverse; gap: 16px; align-items: stretch; }
   .wizard-next-btn { width: 100%; text-align: center; }
   .wizard-back-btn { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #consultIntro { display: none; }
+  .step-content { opacity: 1; transform: none; }
+  .service-grid.shake, .field-group.shake { animation: none; }
 }
 
 .consult-page { padding-top: 0; }
