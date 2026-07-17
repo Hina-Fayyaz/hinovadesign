@@ -1,9 +1,11 @@
 <nav class="navbar">
   <div class="navbar-pill">
-    <img class="navbar-logo" src="assets/images/hinovo%20logo/Hinova_icon_wht_bg.png" alt="Hinova Design" />
+    <a class="navbar-logo-link" href="#hero" aria-label="Hinova Design home">
+      <img class="navbar-logo" src="assets/images/hinovo%20logo/Hinova_icon_wht_bg.png" alt="">
+    </a>
 
     <!-- Mobile toggle -->
-    <button class="navbar-toggle" aria-expanded="false" aria-label="Open menu">
+    <button class="navbar-toggle" type="button" aria-expanded="false" aria-controls="navbarMenu" aria-label="Open menu">
       <span class="hamburger" aria-hidden="true"></span>
     </button>
 
@@ -13,9 +15,13 @@
       <a href="#work">Work</a>
       <a href="#process">Process</a>
       <!-- mobile-only CTA (duplicate) -->
-      <a class="navbar-cta-mobile" href="#contact">Contact Me</a>
+      <a class="navbar-cta-mobile button-primary button-primary-compact" href="#contact">
+        <span>Contact Me</span><span class="button-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
 
-    <a class="navbar-cta desktop-cta" href="#contact">Contact Me</a>
+    <a class="navbar-cta desktop-cta button-primary button-primary-compact" href="#contact">
+      <span>Contact Me</span><span class="button-arrow" aria-hidden="true">→</span>
+    </a>
   </div>
 </nav>
