@@ -22,6 +22,7 @@ async function loadComponents() {
     if (!el) continue;
     try {
       const res  = await fetch(c.file);
+      if (!res.ok) throw new Error('Component request failed with status ' + res.status);
       const html = await res.text();
       el.innerHTML = html;
     } catch (err) {
@@ -52,13 +53,26 @@ function changeSlide(dir) {
   const step = cards[0].getBoundingClientRect().width + gap;
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behavior = reduced ? 'auto' : 'smooth';
+
   if (dir > 0 && carousel.scrollLeft >= maxScroll - 4) {
-    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    carousel.scrollTo({ left: 0, behavior: behavior });
   } else if (dir < 0 && carousel.scrollLeft <= 4) {
-    carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    carousel.scrollTo({ left: maxScroll, behavior: behavior });
   } else {
-    carousel.scrollBy({ left: dir * step, behavior: 'smooth' });
+    carousel.scrollBy({ left: dir * step, behavior: behavior });
   }
+}
+
+function initWorkCarousel() {
+  const carousel = document.getElementById('workCarousel');
+  if (!carousel) return;
+  carousel.addEventListener('keydown', function (event) {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    changeSlide(event.key === 'ArrowRight' ? 1 : -1);
+  });
 }
 
 /* ═══════════════════════════════════════════
@@ -68,9 +82,9 @@ const SUPABASE_URL = 'https://opwbpmqpgudwzssvkotk.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY =
   'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
 
-async function sendMessage(btn) {
-  const form = btn.closest('.contact-form');
-
+async function sendMessage(form) {
+  const btn = form.querySelector('.contact-send');
+  const status = form.querySelector('#contact-status');
   const nameInput = form.querySelector('#contact-name');
   const emailInput = form.querySelector('#contact-email');
   const messageInput = form.querySelector('#contact-message');
@@ -79,14 +93,11 @@ async function sendMessage(btn) {
   const email = emailInput.value.trim();
   const message = messageInput.value.trim();
 
-  if (!name || !email || !message) {
-    alert('Please fill in all fields.');
-    return;
-  }
-
-  if (!emailInput.checkValidity()) {
-    alert('Please enter a valid email address.');
-    emailInput.focus();
+  if (!form.checkValidity()) {
+    status.textContent = 'Please complete the highlighted fields before sending.';
+    form.reportValidity();
+    const invalid = form.querySelector(':invalid');
+    if (invalid) invalid.focus();
     return;
   }
 
@@ -94,6 +105,7 @@ async function sendMessage(btn) {
 
   btn.disabled = true;
   label.textContent = 'Sending...';
+  status.textContent = 'Sending your message.';
 
   try {
     const response = await fetch(
@@ -121,22 +133,20 @@ async function sendMessage(btn) {
 
     label.textContent = 'Message Sent! ✓';
     btn.classList.add('is-sent');
-    btn.style.background = '#fff';
+    status.textContent = 'Your message was sent successfully. I will reply within 1–2 business days.';
 
-    nameInput.value = '';
-    emailInput.value = '';
-    messageInput.value = '';
+    form.reset();
 
     setTimeout(function () {
       label.textContent = 'Start Your Project';
       btn.classList.remove('is-sent');
-      btn.style.background = '';
       btn.disabled = false;
     }, 3000);
   } catch (error) {
     console.error('Error sending message:', error);
 
     label.textContent = 'Error! Try again.';
+    status.textContent = 'Your message could not be sent. Please try again or email hina@hinovadesign.com.';
     btn.disabled = false;
 
     setTimeout(function () {
@@ -145,14 +155,24 @@ async function sendMessage(btn) {
   }
 }
 
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    sendMessage(form);
+  });
+}
+
 /* ═══════════════════════════════════════════
    SMOOTH SCROLL
 ═══════════════════════════════════════════ */
 function initSmoothScroll() {
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); }
     });
   });
 }
@@ -251,30 +271,44 @@ function initMobileNav() {
   const menu   = document.querySelector('.navbar-links');
   if (!toggle || !menu) return;
 
+  function closeMenu(returnFocus) {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    menu.style.display = '';
+    document.body.style.overflow = '';
+    if (returnFocus) toggle.focus();
+  }
+
   toggle.addEventListener('click', function () {
     const isOpen = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    if (isOpen) { menu.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-    else       { menu.style.display = '';     document.body.style.overflow = ''; }
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    if (isOpen) {
+      menu.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      const firstLink = menu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      closeMenu(false);
+    }
   });
 
   // Close menu when a link is clicked
   menu.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      menu.style.display = '';
-      document.body.style.overflow = '';
+      closeMenu(false);
     });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menu.classList.contains('open')) closeMenu(true);
   });
 
   // Reset on resize to desktop
   window.addEventListener('resize', function () {
     if (window.innerWidth > 900) {
-      menu.classList.remove('open');
-      menu.style.display = '';
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      closeMenu(false);
     }
   });
 }
@@ -285,7 +319,15 @@ function initMobileNav() {
 function initTestimonials() {
   var track = document.querySelector('#testimonials .tm-track');
   if (!track || track.dataset.looped) return;
-  track.innerHTML += track.innerHTML;  /* the CSS translateX(-50%) loop needs two copies */
+  track.querySelectorAll('.tcard-stars').forEach(function (stars) {
+    stars.setAttribute('aria-label', '5 out of 5 stars');
+    stars.setAttribute('role', 'img');
+  });
+  Array.from(track.children).forEach(function (card) {
+    var clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
   track.dataset.looped = '1';
 }
 
@@ -294,15 +336,16 @@ function initTestimonials() {
 ═══════════════════════════════════════════ */
 function initAll() {
   initSmoothScroll();
+  initWorkCarousel();
   initActiveNav();
   initSkillsAnimations();
   initTestimonials();
   initProcessSection();
   initWhySection();
   initMobileNav();
+  initContactForm();
   /* expose globals needed by inline onclick attrs in components */
   window.changeSlide  = changeSlide;
-  window.sendMessage  = sendMessage;
 }
 
 document.addEventListener('DOMContentLoaded', loadComponents);
