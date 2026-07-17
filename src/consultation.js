@@ -668,32 +668,9 @@ async function submitConsultation() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   INTRO — plays once on load: blank screen with just the
-   headline, then fades out and auto-scrolls to the project
-   menu (Step 1) so the visitor lands right where they act.
-═══════════════════════════════════════════════════════════ */
-function initIntro() {
-  const intro = document.getElementById('consultIntro');
-  if (!intro) return;
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) {
-    intro.classList.add('intro-done');
-    return;
-  }
-  setTimeout(() => {
-    intro.classList.add('intro-done');
-    setTimeout(() => {
-      const target = document.getElementById('progressBar') || document.getElementById('wizardCard');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
-  }, 2000);
-}
-
-/* ═══════════════════════════════════════════════════════════
    BOOT
 ═══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  initIntro();
   renderStep();
   document.getElementById('nextBtn').addEventListener('click', goNext);
   document.getElementById('backBtn').addEventListener('click', goBack);
