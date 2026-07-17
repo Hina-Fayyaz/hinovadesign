@@ -5,25 +5,6 @@
    and the shared button system) — no new palette introduced.
 ═══════════════════════════════════════════════════════════ */
 
-/* ── Minimal intro — plays once on page load ── */
-#consultIntro {
-  position: fixed; inset: 0; z-index: 500;
-  background: var(--bg-dark);
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-  transition: opacity .8s ease, visibility .8s ease;
-}
-#consultIntro.intro-done { opacity: 0; visibility: hidden; pointer-events: none; }
-.consult-intro-headline {
-  font-family: var(--font-serif); font-weight: 700; font-size: 56px;
-  line-height: 1.2; letter-spacing: -1.5px; color: #fff; text-align: center;
-  max-width: 780px;
-  opacity: 0; transform: translateY(16px);
-  animation: introHeadlineIn 1s cubic-bezier(0.16,1,0.3,1) forwards .2s;
-}
-.consult-intro-headline em { font-style: italic; color: var(--primary); }
-@keyframes introHeadlineIn { to { opacity: 1; transform: translateY(0); } }
-
 /* ── Hero ── */
 .consult-hero {
   background: var(--bg-dark);
@@ -47,7 +28,6 @@
   filter: blur(65px);
 }
 .consult-hero-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
-.consult-hero .tag { background: var(--secondary); margin-bottom: 28px; }
 .consult-headline {
   font-family: var(--font-serif); font-weight: 700; font-size: 56px;
   line-height: 1.15; letter-spacing: -1.5px; color: #fff;
@@ -266,7 +246,6 @@
    RESPONSIVE
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .consult-intro-headline { font-size: 34px; letter-spacing: -1px; }
   .consult-hero { padding: 70px 32px 90px; }
   .consult-headline { font-size: 38px; letter-spacing: -1px; }
   .consult-subtitle { font-size: 16px; }
@@ -279,7 +258,6 @@
 }
 
 @media (max-width: 600px) {
-  .consult-intro-headline { font-size: 26px; }
   .consult-headline { font-size: 30px; }
   #wizardCard { padding: 32px 20px; border-radius: 22px; }
   .wizard-nav { flex-direction: column-reverse; gap: 16px; align-items: stretch; }
@@ -288,7 +266,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #consultIntro { display: none; }
   .step-content { opacity: 1; transform: none; }
   .service-grid.shake, .field-group.shake { animation: none; }
 }
