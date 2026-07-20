@@ -160,7 +160,7 @@ function fieldWrapper(field, value, groupName) {
   </div>`;
 }
 
-function renderStep() {
+function renderStep(shouldScroll = true) {
   const root = document.getElementById('stepContent');
   root.classList.remove('step-enter');
   void root.offsetWidth; /* restart animation */
@@ -247,8 +247,10 @@ function renderStep() {
   attachStepListeners();
   updateNavButtons();
   renderProgress();
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.scrollTo({ top: document.getElementById('wizardCard').offsetTop - 40, behavior: reduced ? 'auto' : 'smooth' });
+  if (shouldScroll) {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: document.getElementById('wizardCard').offsetTop - 40, behavior: reduced ? 'auto' : 'smooth' });
+  }
 }
 
 function fileFieldWrapper(key, label, helper) {
@@ -671,7 +673,7 @@ async function submitConsultation() {
    BOOT
 ═══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  renderStep();
+  renderStep(false);
   document.getElementById('nextBtn').addEventListener('click', goNext);
   document.getElementById('backBtn').addEventListener('click', goBack);
   /* keyboard: Enter submits the current step (unless focus is in a textarea) */
