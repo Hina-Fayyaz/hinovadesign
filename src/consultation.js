@@ -261,7 +261,7 @@ function fileFieldWrapper(key, label, helper) {
     <label class="file-drop" for="file-${key}">
       <i class="fas fa-cloud-arrow-up"></i>
       <span>Choose PDF, Word, PNG, JPEG or WebP files</span>
-      <small>Maximum 10 MB per file · 5 files per request</small>
+      <small>Maximum 2 MB per file · 3 MB total · 5 files per request</small>
       <input type="file" id="file-${key}" data-filekey="${key}" multiple
         accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" style="display:none;" />
     </label>
@@ -371,7 +371,7 @@ function attachStepListeners() {
       const validFiles = selected.filter(isAllowedFile).slice(0, remaining);
 
       if (validFiles.length !== selected.length) {
-        alert('Please add up to 5 files in PDF, Word, PNG, JPEG or WebP format, with each file under 10 MB.');
+        alert('Please add up to 5 files in PDF, Word, PNG, JPEG or WebP format, with each file under 2 MB.');
       }
 
       state.files[key] = state.files[key].concat(validFiles);
@@ -510,17 +510,11 @@ function goBack() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SUBMIT — files are uploaded to a private bucket first. The
-   database record stores only safe metadata and private paths.
+   SUBMIT — files are sent through the existing form workflow.
+   Apps Script saves the uploads to Google Drive and stores links.
 ═══════════════════════════════════════════════════════════ */
-const CONSULTATION_SUPABASE_URL =
-  'https://opwbpmqpgudwzssvkotk.supabase.co';
-
-const CONSULTATION_SUPABASE_PUBLISHABLE_KEY =
-  'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
-
-const CONSULTATION_FILES_BUCKET = 'consultation-files';
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const MAX_FILE_SIZE = 2 * 1024 * 1024;
+const MAX_TOTAL_UPLOAD_SIZE = 3 * 1024 * 1024;
 const MAX_TOTAL_FILES = 5;
 const ALLOWED_FILE_TYPES = new Set([
   'application/pdf',
@@ -556,38 +550,35 @@ function safeFileName(name) {
   return base + extension;
 }
 
+function fileToPayload(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result || '');
+      resolve({
+        name: safeFileName(file.name),
+        original_name: file.name,
+        type: file.type || 'application/octet-stream',
+        size: file.size,
+        data: result.includes(',') ? result.split(',').pop() : result
+      });
+    };
+    reader.onerror = () => reject(new Error('Unable to read selected file'));
+    reader.readAsDataURL(file);
+  });
+}
+
 async function uploadConsultationFiles(submissionId) {
   const uploaded = { inspiration: [], branding: [], logo: [] };
+  const allFiles = Object.values(state.files).flat();
+  const totalSize = allFiles.reduce((sum, file) => sum + file.size, 0);
+
+  if (totalSize > MAX_TOTAL_UPLOAD_SIZE) {
+    throw new Error('Selected files are too large. Please keep uploads under 3 MB total.');
+  }
 
   for (const [category, files] of Object.entries(state.files)) {
-    for (const file of files) {
-      const objectPath = `${submissionId}/${category}/${crypto.randomUUID()}-${safeFileName(file.name)}`;
-      const encodedPath = objectPath.split('/').map(encodeURIComponent).join('/');
-      const response = await fetch(
-        `${CONSULTATION_SUPABASE_URL}/storage/v1/object/${CONSULTATION_FILES_BUCKET}/${encodedPath}`,
-        {
-          method: 'POST',
-          headers: {
-            apikey: CONSULTATION_SUPABASE_PUBLISHABLE_KEY,
-            Authorization: `Bearer ${CONSULTATION_SUPABASE_PUBLISHABLE_KEY}`,
-            'Content-Type': file.type,
-            'x-upsert': 'false'
-          },
-          body: file
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`File upload failed with status ${response.status}`);
-      }
-
-      uploaded[category].push({
-        name: file.name,
-        path: objectPath,
-        type: file.type,
-        size: file.size
-      });
-    }
+    uploaded[category] = await Promise.all(files.map(fileToPayload));
   }
 
   return uploaded;
