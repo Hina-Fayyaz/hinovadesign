@@ -1026,7 +1026,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   box-shadow: 0 16px 38px -10px rgba(190,232,42,.5);
 }
 .contact-send:focus-visible { outline: 2px solid var(--secondary); outline-offset: 3px; }
-.contact-send-arrow { display: inline-block; transition: transform .25s ease; }
+.contact-send-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  line-height: 1; transition: transform .25s ease;
+}
 .contact-send:hover .contact-send-arrow { transform: translateX(6px); }
 .contact-send.is-sent .contact-send-arrow { display: none; }
 /* periodic shine sweep across the button */
