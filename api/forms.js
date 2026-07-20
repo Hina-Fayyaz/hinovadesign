@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ ok: false, error: 'Enter a valid email address' });
     }
 
-    if (JSON.stringify(body).length > 100000) {
+    if (JSON.stringify(body).length > 4000000) {
       return res.status(413).json({ ok: false, error: 'Submission is too large' });
     }
 
