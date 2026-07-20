@@ -76,11 +76,8 @@ function initWorkCarousel() {
 }
 
 /* ═══════════════════════════════════════════
-   CONTACT FORM WITH SUPABASE
+   CONTACT FORM — GOOGLE SHEETS + NOTION
 ═══════════════════════════════════════════ */
-const SUPABASE_URL = 'https://opwbpmqpgudwzssvkotk.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY =
-  'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
 
 async function sendMessage(form) {
   const btn = form.querySelector('.contact-send');
@@ -108,26 +105,26 @@ async function sendMessage(form) {
   status.textContent = 'Sending your message.';
 
   try {
-    const response = await fetch(
-      SUPABASE_URL + '/rest/v1/leads',
-      {
-        method: 'POST',
-        headers: {
-          apikey: SUPABASE_PUBLISHABLE_KEY,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal'
-        },
-        body: JSON.stringify({
+    const response = await fetch('/api/forms', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'lead',
+        data: {
           name,
           email,
-          message
-        })
-      }
-    );
+          message,
+          source: 'Hinova Design Website',
+          website: form.querySelector('[name="website"]')?.value || ''
+        }
+      })
+    });
 
-    if (!response.ok) {
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
       throw new Error(
-        'Lead submission failed with status ' + response.status
+        result.error || 'Lead submission failed with status ' + response.status
       );
     }
 
