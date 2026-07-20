@@ -623,24 +623,21 @@ async function submitConsultation() {
       communication: state.logistics.communication || null
     };
 
-    const response = await fetch(
-      CONSULTATION_SUPABASE_URL +
-        '/rest/v1/consultation_requests',
-      {
-        method: 'POST',
-        headers: {
-          apikey: CONSULTATION_SUPABASE_PUBLISHABLE_KEY,
-          'Content-Type': 'application/json',
-          Prefer: 'return=minimal'
-        },
-        body: JSON.stringify(payload)
-      }
-    );
+    const response = await fetch('/api/forms', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'consultation',
+        data: payload
+      })
+    });
 
-    if (!response.ok) {
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
       throw new Error(
-        'Consultation submission failed with status ' +
-          response.status
+        result.error ||
+          'Consultation submission failed with status ' + response.status
       );
     }
 
