@@ -76,8 +76,11 @@ function initWorkCarousel() {
 }
 
 /* ═══════════════════════════════════════════
-   CONTACT FORM — GOOGLE SHEETS + NOTION
+   CONTACT FORM WITH SUPABASE
 ═══════════════════════════════════════════ */
+const SUPABASE_URL = 'https://opwbpmqpgudwzssvkotk.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY =
+  'sb_publishable_f_X2-BPGvGmlzPaB2suquw_JaJYlBrf';
 
 async function sendMessage(form) {
   const btn = form.querySelector('.contact-send');
@@ -105,26 +108,26 @@ async function sendMessage(form) {
   status.textContent = 'Sending your message.';
 
   try {
-    const response = await fetch('/api/forms', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        type: 'lead',
-        data: {
+    const response = await fetch(
+      SUPABASE_URL + '/rest/v1/leads',
+      {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal'
+        },
+        body: JSON.stringify({
           name,
           email,
-          message,
-          source: 'Hinova Design Website',
-          website: form.querySelector('[name="website"]')?.value || ''
-        }
-      })
-    });
+          message
+        })
+      }
+    );
 
-    const result = await response.json();
-
-    if (!response.ok || !result.ok) {
+    if (!response.ok) {
       throw new Error(
-        result.error || 'Lead submission failed with status ' + response.status
+        'Lead submission failed with status ' + response.status
       );
     }
 
@@ -179,7 +182,7 @@ function initSmoothScroll() {
 ═══════════════════════════════════════════ */
 function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
-  const links    = document.querySelectorAll('.navbar-links a');
+  const links    = document.querySelectorAll('.navbar-links a:not(.navbar-cta-mobile)');
   window.addEventListener('scroll', function () {
     let current = '';
     sections.forEach(function (s) {
