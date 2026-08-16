@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Partnerships in Pakistan | Hinova Design</title>
+  <meta name="description" content="Hinova Design helps universities, educators and education programs turn approved curriculum into clear, practical and measurable learning experiences.">
+  <meta property="og:title" content="Education Partnerships in Pakistan | Hinova Design">
+  <meta property="og:description" content="From approved curriculum to clear, practical and measurable learning experiences—designed for Pakistan's classroom, connectivity and career realities.">
+  <meta property="og:image" content="https://hinovadesign.com/assets/images/Featured%20Work/nutrition-starter-pack.png">
+  <meta property="og:url" content="https://hinovadesign.com/education-partnerships.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/education-partnerships/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/css/education-partnerships.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+<div class="nav-shell">
+<a class="brand-link" href="https://hinovadesign.com/" aria-label="Hinova Design home">
+<img src="assets/images/education-partnerships/hinova-logo-light.png" alt=""/>
+<span>
+<strong>Hinova Design</strong>
+<small>Education partnerships</small>
+</span>
+</a>
+<nav class="desktop-nav" aria-label="Primary navigation">
+<a href="#challenge">The challenge</a>
+<a href="#approach">Our approach</a>
+<a href="#pilot">90-day pilot</a>
+<a href="#evidence">Evidence</a>
+</nav>
+<a class="button-primary button-compact desktop-contact" href="https://hinovadesign.com/project-inquiry.html">
+<span>Discuss a pilot</span>
+<span class="button-arrow" aria-hidden="true">→</span>
+</a>
+<details class="mobile-menu">
+<summary aria-label="Open navigation">Menu</summary>
+<nav aria-label="Mobile navigation">
+<a href="#challenge">The challenge</a>
+<a href="#approach">Our approach</a>
+<a href="#pilot">90-day pilot</a>
+<a href="#evidence">Evidence</a>
+<a href="https://hinovadesign.com/project-inquiry.html">Discuss a pilot</a>
+</nav>
+</details>
+</div>
+</header>
+<main id="main-content">
+<section class="hero section-cream">
+<div class="hero-orb hero-orb-pink" aria-hidden="true">
+</div>
+<div class="hero-orb hero-orb-lime" aria-hidden="true">
+</div>
+<div class="section-shell hero-grid">
+<div class="hero-copy">
+<p class="tag">Education partnerships · Pakistan</p>
+<h1>Better curriculum deserves a better <em>learning experience.</em>
+</h1>
+<p class="hero-lede">Hinova partners with universities, educators and public-interest programs to turn approved curriculum and expert knowledge into clear, practical and measurable learning materials—designed for Pakistan&#x27;s classroom, connectivity and career realities.</p>
+<div class="hero-actions">
+<a class="button-primary" href="https://hinovadesign.com/project-inquiry.html">
+<span>Propose a 90-day pilot</span>
+<span class="button-arrow" aria-hidden="true">→</span>
+</a>
+<a class="button-secondary" href="#approach">
+<span class="button-dots" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</span>See the approach</a>
+</div>
+<p class="hero-proof">Led by Hina Fayyaz <span aria-hidden="true">·</span> 250+ design projects <span aria-hidden="true">·</span> 4.9 Upwork rating</p>
+</div>
+<div class="hero-system" aria-label="Hinova learning design system">
+<div class="system-topline">
+<span>From curriculum</span>
+<span>to capability</span>
+</div>
+<ol class="system-flow">
+<li>
+<span>01</span>
+<div>
+<strong>Approved curriculum</strong>
+<small>Outcomes, standards and expert content</small>
+</div>
+</li>
+<li>
+<span>02</span>
+<div>
+<strong>Learning architecture</strong>
+<small>Sequence, practice and assessment</small>
+</div>
+</li>
+<li>
+<span>03</span>
+<div>
+<strong>Faculty + learner tools</strong>
+<small>Guides, workbooks and resources</small>
+</div>
+</li>
+<li>
+<span>04</span>
+<div>
+<strong>Evidence + iteration</strong>
+<small>Learning, usability and next decisions</small>
+</div>
+</li>
+</ol>
+<p class="system-note">Academic authority stays with your institution. Hinova designs the experience around it.</p>
+</div>
+</div>
+</section>
+<section class="evidence-band" id="evidence" aria-labelledby="evidence-title">
+<div class="section-shell">
+<div class="evidence-intro">
+<p class="eyebrow">The national context</p>
+<h2 id="evidence-title">Design decisions must start with reality.</h2>
+<p>These indicators define the size of the challenge. Learning design is one part of the response—not a substitute for access, funding, teachers or infrastructure.</p>
+</div>
+<div class="metrics-grid">
+<a class="metric-card metric-1" href="https://www.finance.gov.pk/survey/chapter_26/10_Education.pdf" target="_blank" rel="noreferrer" aria-label="28%: of children aged 5–16 are out of school. Open source">
+<span class="metric-value">28%</span>
+<strong>of children aged 5–16 are out of school</strong>
+<small>Government estimate, HIES 2024–25</small>
+<span class="metric-source">View source <span class="external-mark" aria-hidden="true">↗</span>
+</span>
+</a>
+<a class="metric-card metric-2" href="https://datatopics.worldbank.org/dataviz/girls-education-pakistan/" target="_blank" rel="noreferrer" aria-label="77%: of children face learning poverty. Open source">
+<span class="metric-value">77%</span>
+<strong>of children face learning poverty</strong>
+<small>Unable to read and understand a simple text by age 10</small>
+<span class="metric-source">View source <span class="external-mark" aria-hidden="true">↗</span>
+</span>
+</a>
+<a class="metric-card metric-3" href="https://www.finance.gov.pk/survey/chapter_26/10_Education.pdf" target="_blank" rel="noreferrer" aria-label="63%: literacy rate for people aged 10+. Open source">
+<span class="metric-value">63%</span>
+<strong>literacy rate for people aged 10+</strong>
+<small>Male 73% · Female 54%, HIES 2024–25</small>
+<span class="metric-source">View source <span class="external-mark" aria-hidden="true">↗</span>
+</span>
+</a>
+<a class="metric-card metric-4" href="https://www.finance.gov.pk/survey/chapter_26/10_Education.pdf" target="_blank" rel="noreferrer" aria-label="0.8%: of GDP spent on education in FY2025. Open source">
+<span class="metric-value">0.8%</span>
+<strong>of GDP spent on education in FY2025</strong>
+<small>Pakistan Economic Survey 2025–26</small>
+<span class="metric-source">View source <span class="external-mark" aria-hidden="true">↗</span>
+</span>
+</a>
+</div>
+<p class="data-note">Data note: estimates vary by source and methodology. The Government&#x27;s HIES 2024–25 estimate is 28%; UNICEF currently cites 35% (25.1 million) for children aged 5–16. Both point to a severe access crisis.<a href="https://www.unicef.org/pakistan/education" target="_blank" rel="noreferrer">Compare UNICEF&#x27;s estimate <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</p>
+</div>
+</section>
+<section class="challenge-section section-cream" id="challenge">
+<div class="section-shell">
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow">Five connected challenges</p>
+<h2>The problem is bigger than <em>making content look better.</em>
+</h2>
+</div>
+<p>Pakistan needs more children in education—and stronger learning once they arrive. Hinova&#x27;s contribution is focused: make approved learning clearer, more active, more usable and easier to improve.</p>
+</div>
+<div class="challenge-grid">
+<article class="challenge-card">
+<div class="challenge-number">01</div>
+<h3>Access is deeply unequal</h3>
+<p>The government estimate puts out-of-school rates at 21% in Punjab and 45% in Balochistan. Nationally, the rate is higher for girls (31%) than boys (25%).</p>
+<div class="design-response">
+<span>Learning-design response</span>
+<strong>Materials must work across languages, locations, devices and print—not assume one ideal classroom.</strong>
+</div>
+</article>
+<article class="challenge-card">
+<div class="challenge-number">02</div>
+<h3>Attendance does not guarantee learning</h3>
+<p>Learning poverty is estimated at 77%. Enrolment matters, but students also need guided practice, feedback and opportunities to apply knowledge.</p>
+<div class="design-response">
+<span>Learning-design response</span>
+<strong>Every module should connect an outcome to practice, feedback and evidence of learning.</strong>
+</div>
+</article>
+<article class="challenge-card">
+<div class="challenge-number">03</div>
+<h3>Infrastructure changes the design brief</h3>
+<p>Only 65% of public schools have electricity overall; the figure is 21% in Balochistan. Digital-only solutions can widen the gap they intend to close.</p>
+<div class="design-response">
+<span>Learning-design response</span>
+<strong>Use print-ready, mobile-friendly and low-bandwidth formats with clear offline pathways.</strong>
+</div>
+</article>
+<article class="challenge-card">
+<div class="challenge-number">04</div>
+<h3>Degrees need stronger links to practice</h3>
+<p>HEC’s mandatory internship and professional-certification requirements signal a national push toward employability and applied experience.</p>
+<div class="design-response">
+<span>Learning-design response</span>
+<strong>Courses need authentic briefs, portfolio evidence, rubrics and structured reflection—not content alone.</strong>
+</div>
+</article>
+<article class="challenge-card">
+<div class="challenge-number">05</div>
+<h3>Change depends on faculty adoption</h3>
+<p>New tools and AI do not improve learning by themselves. Educators need usable guides, examples, review time and sustained support.</p>
+<div class="design-response">
+<span>Learning-design response</span>
+<strong>Design the faculty experience alongside the student experience, then improve it through a pilot.</strong>
+</div>
+</article>
+</div>
+<aside class="scope-banner">
+<span class="scope-mark" aria-hidden="true">≠</span>
+<div>
+<p class="eyebrow">A clear scope builds trust</p>
+<h3>What Hinova does—and does not—claim to solve</h3>
+<p>Hinova does not set policy, approve academic content, replace faculty or fix missing infrastructure. We help institutions convert approved knowledge into a coherent learning system, support faculty implementation and test whether that system is working for learners.</p>
+</div>
+</aside>
+</div>
+</section>
+<section class="approach-section" id="approach">
+<div class="section-shell">
+<div class="section-heading split-heading light-heading">
+<div>
+<p class="eyebrow">Where Hinova adds value</p>
+<h2>We connect the course you approved to the experience your learners actually have.</h2>
+</div>
+<p>Each partnership starts with the learning problem. The format—a course, workbook, guide, fillable PDF or toolkit—follows the strategy.</p>
+</div>
+<div class="solution-table" role="table" aria-label="Challenge to solution mapping">
+<div class="solution-row solution-header" role="row">
+<span role="columnheader">Institutional challenge</span>
+<span role="columnheader">Hinova response</span>
+<span role="columnheader">Practical outputs</span>
+</div>
+<div class="solution-row" role="row">
+<div role="cell" data-label="Institutional challenge">
+<span class="row-index">01</span>
+<strong>Content is dense or fragmented</strong>
+</div>
+<div role="cell" data-label="Hinova response">Learning-experience audit and module architecture</div>
+<div role="cell" data-label="Practical outputs">Course map · module templates · content hierarchy</div>
+</div>
+<div class="solution-row" role="row">
+<div role="cell" data-label="Institutional challenge">
+<span class="row-index">02</span>
+<strong>Students consume but rarely apply</strong>
+</div>
+<div role="cell" data-label="Hinova response">Practice, scenarios and authentic assessment design</div>
+<div role="cell" data-label="Practical outputs">Workbooks · case activities · capstone briefs · rubrics</div>
+</div>
+<div class="solution-row" role="row">
+<div role="cell" data-label="Institutional challenge">
+<span class="row-index">03</span>
+<strong>Faculty rebuild materials each term</strong>
+</div>
+<div role="cell" data-label="Hinova response">A reusable teaching and facilitation system</div>
+<div role="cell" data-label="Practical outputs">Facilitator guide · slides · answer keys · checklists</div>
+</div>
+<div class="solution-row" role="row">
+<div role="cell" data-label="Institutional challenge">
+<span class="row-index">04</span>
+<strong>Access varies by device and location</strong>
+</div>
+<div role="cell" data-label="Hinova response">Inclusive, low-bandwidth document design</div>
+<div role="cell" data-label="Practical outputs">Print PDF · mobile PDF · fillable PDF · accessible files</div>
+</div>
+<div class="solution-row" role="row">
+<div role="cell" data-label="Institutional challenge">
+<span class="row-index">05</span>
+<strong>Success is difficult to demonstrate</strong>
+</div>
+<div role="cell" data-label="Hinova response">Pilot measurement and iteration plan</div>
+<div role="cell" data-label="Practical outputs">Baseline/exit tools · feedback forms · evidence summary</div>
+</div>
+</div>
+<div class="principles-grid">
+<article>
+<span>Clear</span>
+<h3>Outcome-led</h3>
+<p>Every activity and assessment has a visible reason to exist.</p>
+</article>
+<article>
+<span>Practical</span>
+<h3>Application-rich</h3>
+<p>Learners create, decide, practise and reflect—not only read.</p>
+</article>
+<article>
+<span>Inclusive</span>
+<h3>Context-aware</h3>
+<p>Delivery choices reflect language, devices, print and bandwidth.</p>
+</article>
+<article>
+<span>Measurable</span>
+<h3>Evidence-ready</h3>
+<p>The pilot defines what success means before design begins.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="pilot-section section-cream" id="pilot">
+<div class="section-shell">
+<div class="pilot-intro">
+<div>
+<p class="tag">A low-risk starting point</p>
+<h2>Start with one course. Build proof before you scale.</h2>
+</div>
+<div class="pilot-promise">
+<strong>90 days</strong>
+<span>One course · one cohort · one measurable priority</span>
+</div>
+</div>
+<ol class="pilot-timeline">
+<li>
+<div class="phase-line">
+<span>01</span>
+<i aria-hidden="true">
+</i>
+</div>
+<small>Weeks 1–2</small>
+<h3>Diagnose</h3>
+<p>Select one course, one learner group and one priority. Review outcomes, content, assessment, constraints and faculty workflow.</p>
+</li>
+<li>
+<div class="phase-line">
+<span>02</span>
+<i aria-hidden="true">
+</i>
+</div>
+<small>Weeks 3–4</small>
+<h3>Blueprint</h3>
+<p>Map approved outcomes to modules, practice, assessment and delivery formats. Agree what evidence the pilot will collect.</p>
+</li>
+<li>
+<div class="phase-line">
+<span>03</span>
+<i aria-hidden="true">
+</i>
+</div>
+<small>Weeks 5–8</small>
+<h3>Prototype</h3>
+<p>Build a representative learning unit and faculty toolkit. Academic reviewers verify accuracy before student use.</p>
+</li>
+<li>
+<div class="phase-line">
+<span>04</span>
+<i aria-hidden="true">
+</i>
+</div>
+<small>Weeks 9–12</small>
+<h3>Pilot + improve</h3>
+<p>Test with a real cohort, capture learner and faculty evidence, refine the system and recommend the next scale decision.</p>
+</li>
+</ol>
+<div class="measurement-card">
+<div>
+<p class="eyebrow">Decide with evidence</p>
+<h3>What a pilot can measure</h3>
+</div>
+<ul>
+<li>Change between a short baseline and exit task</li>
+<li>Completion and participation in designed activities</li>
+<li>Quality of applied work against a shared rubric</li>
+<li>Learner clarity, usability and confidence</li>
+<li>Faculty preparation time and implementation feedback</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="audience-section">
+<div class="section-shell">
+<div class="section-heading centered-heading">
+<p class="eyebrow">Who this is for</p>
+<h2>Partners who want learning to move from information to action.</h2>
+</div>
+<div class="audience-grid">
+<article>
+<span>01</span>
+<h3>Universities &amp; departments</h3>
+<p>Modernise a course, capstone, internship-preparation module or faculty resource system.</p>
+</article>
+<article>
+<span>02</span>
+<h3>Educators &amp; academies</h3>
+<p>Turn subject expertise into a structured course, workbook or blended learning experience.</p>
+</article>
+<article>
+<span>03</span>
+<h3>Education programs</h3>
+<p>Create scalable, field-ready learner and facilitator materials for NGOs and public-interest initiatives.</p>
+</article>
+</div>
+<div class="partnership-rule">
+<strong>A good partnership includes:</strong>
+<span>an accountable program owner</span>
+<span>an academic reviewer</span>
+<span>access to real learners</span>
+<span>permission to test and improve</span>
+</div>
+</div>
+</section>
+<section class="proof-section section-cream">
+<div class="section-shell proof-grid">
+<div class="proof-copy">
+<p class="eyebrow">Why Hinova</p>
+<h2>Learning materials are not decoration. They are part of the teaching system.</h2>
+<p>Hinova Design specialises in turning expertise into structured, premium learning experiences: courses, workbooks, journals, guides and interactive documents. The same craft can help institutions make approved learning easier to teach, use and evaluate.</p>
+<div class="proof-actions">
+<a class="button-primary" href="https://hinovadesign.com/#work">
+<span>View selected work</span>
+<span class="button-arrow" aria-hidden="true">→</span>
+</a>
+<a class="text-link" href="https://www.upwork.com/freelancers/hinafayyaz" target="_blank" rel="noreferrer">Review the Upwork profile <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</div>
+</div>
+<div class="proof-stats" aria-label="Hinova Design experience">
+<div class="proof-stat proof-stat-lime">
+<strong>250+</strong>
+<span>Projects completed</span>
+</div>
+<div class="proof-stat proof-stat-dark">
+<strong>3+</strong>
+<span>Years of experience</span>
+</div>
+<div class="proof-stat proof-stat-pink">
+<strong>4.9★</strong>
+<span>Top Rated on Upwork</span>
+</div>
+</div>
+</div>
+</section>
+<section class="faq-section">
+<div class="section-shell faq-grid">
+<div class="faq-heading">
+<p class="eyebrow">Practical questions</p>
+<h2>Before we begin</h2>
+<p>A useful pilot has clear roles, realistic constraints and an honest way to judge progress.</p>
+</div>
+<div class="faq-list">
+<details open="">
+<summary>
+<span>Does Hinova replace curriculum experts or faculty?</span>
+<i aria-hidden="true">+</i>
+</summary>
+<p>No. Subject experts and the institution retain academic authority. Hinova structures the learner journey, designs the materials and supports implementation; academic reviewers approve accuracy and alignment.</p>
+</details>
+<details>
+<summary>
+<span>Can one design solution work across Pakistan?</span>
+<i aria-hidden="true">+</i>
+</summary>
+<p>Not responsibly without adaptation. A pilot identifies learner language, access, device, print and faculty constraints. We then create a core system with format or context variants where they are genuinely needed.</p>
+</details>
+<details>
+<summary>
+<span>Can you design bilingual materials?</span>
+<i aria-hidden="true">+</i>
+</summary>
+<p>Yes, when terminology and translation are provided or approved by qualified institutional reviewers. Hinova can design a consistent bilingual system and make both versions easy to use.</p>
+</details>
+<details>
+<summary>
+<span>Can you guarantee better learning outcomes?</span>
+<i aria-hidden="true">+</i>
+</summary>
+<p>No ethical partner should guarantee an outcome before testing. Hinova designs for clear outcomes, active practice and better usability, then helps the institution measure the pilot’s contribution and decide what to improve.</p>
+</details>
+<details>
+<summary>
+<span>What do you need to start?</span>
+<i aria-hidden="true">+</i>
+</summary>
+<p>A course or program owner, approved outcomes or standards, sample content, a named academic reviewer, learner context, delivery constraints and access to a small pilot group.</p>
+</details>
+</div>
+</div>
+</section>
+<section class="contact-section" id="contact">
+<div class="section-shell contact-grid">
+<div class="contact-copy">
+<p class="tag">Let&#x27;s build the first proof</p>
+<h2>Improve one learning experience <em>first.</em>
+</h2>
+<p>Tell us which course or program needs attention, who the learners are and what should be different after 90 days. We&#x27;ll respond with the right next conversation—not a generic package.</p>
+<div class="contact-actions">
+<a class="button-primary button-on-dark" href="https://hinovadesign.com/project-inquiry.html">
+<span>Start a project inquiry</span>
+<span class="button-arrow" aria-hidden="true">→</span>
+</a>
+<a class="email-link" href="mailto:hina@hinovadesign.com?subject=Education%20Partnership%20Inquiry">hina@hinovadesign.com</a>
+</div>
+<p class="response-time">Typical response: 1–2 business days</p>
+</div>
+<aside class="brief-card">
+<div class="brief-card-top">
+<span>Partnership brief</span>
+<span>5 prompts</span>
+</div>
+<h3>Bring these answers to the first call</h3>
+<ol>
+<li>
+<span>01</span>
+<p>Which course, program or curriculum are we improving?</p>
+</li>
+<li>
+<span>02</span>
+<p>Who are the learners, and what access constraints exist?</p>
+</li>
+<li>
+<span>03</span>
+<p>What should learners be able to do—not only know?</p>
+</li>
+<li>
+<span>04</span>
+<p>Who will approve academic accuracy and terminology?</p>
+</li>
+<li>
+<span>05</span>
+<p>What evidence would justify expanding the pilot?</p>
+</li>
+</ol>
+</aside>
+</div>
+</section>
+<section class="references-section" aria-labelledby="references-title">
+<div class="section-shell references-grid">
+<div>
+<p class="eyebrow">Research note</p>
+<h2 id="references-title">Sources behind the page</h2>
+</div>
+<ol>
+<li>
+<a href="https://www.finance.gov.pk/survey/chapter_26/10_Education.pdf" target="_blank" rel="noreferrer">Pakistan Economic Survey 2025–26, Education chapter <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</li>
+<li>
+<a href="https://datatopics.worldbank.org/dataviz/girls-education-pakistan/" target="_blank" rel="noreferrer">World Bank, Girls&#x27; Education in Pakistan / Learning Poverty <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</li>
+<li>
+<a href="https://www.unicef.org/pakistan/education" target="_blank" rel="noreferrer">UNICEF Pakistan, Education <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</li>
+<li>
+<a href="https://www.hec.gov.pk/english/news/news/Pages/HEC-Announces-Mandatory-Professional-Certifications-%26-Internships-for-Undergraduate-Degrees.aspx" target="_blank" rel="noreferrer">HEC, mandatory internships and professional certifications <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</li>
+<li>
+<a href="https://www.unesco.org/en/articles/empowering-pakistans-educators-ai-driven-future" target="_blank" rel="noreferrer">UNESCO, educator development for an AI-driven future <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</li>
+</ol>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="section-shell footer-grid">
+<a href="https://hinovadesign.com/" class="footer-brand">
+<img src="assets/images/education-partnerships/hinova-logo-dark.png" alt="Hinova Design"/>
+</a>
+<p>Turning expert knowledge into clear, practical and beautiful learning experiences.</p>
+<nav aria-label="Social and professional links">
+<a href="https://www.linkedin.com/in/hina-fayyaz" target="_blank" rel="noreferrer">LinkedIn <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+<a href="https://www.instagram.com/hinova.design/" target="_blank" rel="noreferrer">Instagram <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+<a href="https://www.upwork.com/freelancers/hinafayyaz" target="_blank" rel="noreferrer">Upwork <span class="external-mark" aria-hidden="true">↗</span>
+</a>
+</nav>
+</div>
+<div class="section-shell footer-bottom">
+<span>© 2026 Hinova Design</span>
+<span>Course · Workbook · Journal · Fillable PDF</span>
+</div>
+</footer>
+</body>
+</html>
