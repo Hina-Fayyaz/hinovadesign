@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Arrow } from "./Icons";
 import { siteContent, type Audience } from "@/content";
 
 export function FounderSection({ audience }: { audience: Audience }) {
@@ -17,9 +16,6 @@ export function FounderSection({ audience }: { audience: Audience }) {
           <h2 id="founder-heading">{founder.title}</h2>
           <p className="founder-role">{founder.role}</p>
           {founder.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          <a className="button button-dark founder-portfolio-link" href="/hinafayyaz/">
-            View Hina’s Portfolio <Arrow />
-          </a>
         </div>
       </div>
     </section>
