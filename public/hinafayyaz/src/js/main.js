@@ -4,16 +4,16 @@
    into the corresponding placeholder div.
 ═══════════════════════════════════════════ */
 const components = [
-  { id: 'navbar-root',   file: 'src/components/Navbar.html'   },
-  { id: 'hero-root',     file: 'src/components/Hero.html'     },
-  { id: 'samples-root',  file: 'src/components/Work.html'  },
-  { id: 'about-root',    file: 'src/components/About.html'    },
-  { id: 'skills-root',   file: 'src/components/Skills.html'   },
-  { id: 'process-root',  file: 'src/components/Process.html'  },
-  { id: 'why-root',      file: 'src/components/WhyMe.html'    },
-  { id: 'testimonials-root', file: 'src/components/Testimonials.html' },
-  { id: 'contact-root',  file: 'src/components/Contact.html'  },
-  { id: 'footer-root',   file: 'src/components/Footer.html'   },
+  { id: 'navbar-root',   file: 'src/components/Navbar/'   },
+  { id: 'hero-root',     file: 'src/components/Hero/'     },
+  { id: 'samples-root',  file: 'src/components/Work/'  },
+  { id: 'about-root',    file: 'src/components/About/'    },
+  { id: 'skills-root',   file: 'src/components/Skills/'   },
+  { id: 'process-root',  file: 'src/components/Process/'  },
+  { id: 'why-root',      file: 'src/components/WhyMe/'    },
+  { id: 'testimonials-root', file: 'src/components/Testimonials/' },
+  { id: 'contact-root',  file: 'src/components/Contact/'  },
+  { id: 'footer-root',   file: 'src/components/Footer/'   },
 ];
 
 async function loadComponents() {
