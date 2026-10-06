@@ -43,7 +43,7 @@ export function TeamSection() {
           <button className="team-arrow team-arrow-prev" type="button" onClick={() => move(-1)} disabled={!canMoveBack} aria-label="Previous team member"><Arrow /></button>
           <ul className="team-card-grid" ref={track} aria-label="Hinova team members and open roles">
             {teamMembers.map((member, index) => (
-              <li className={`team-profile team-profile-${index + 1}`} key={member.role}>
+              <li className={`team-profile team-profile-${index + 1}`} key={member.name ?? member.role}>
                 <div className="team-profile-visual">
                   {member.photo ? (
                     <Image src={member.photo} alt={member.name || member.role} fill sizes="(max-width:700px) 75vw, (max-width:1100px) 42vw, 26vw" />
