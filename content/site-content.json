@@ -1,0 +1,320 @@
+{
+  "educators": {
+    "title": "Course and Resource Design for Educators | Hinova Design",
+    "eyebrow": "Course and resource design for educators",
+    "heroTitle": "Courses that are easier to teach and",
+    "heroHighlight": "easier to follow",
+    "heroParagraphs": [
+      "Hinova helps educators and education teams plan courses, develop online lessons and design the materials that support teaching and learner practice.",
+      "We work from your syllabus, source content and learning goals to create lesson structures, activities, assessments and resources. When you need online delivery, we can also organise the course on Kajabi, Thinkific or Teachable."
+    ],
+    "heroSupport": "For tutors, schools, private academies, universities and education organisations.",
+    "needs": {
+      "title": "A syllabus sets the direction but the learning still needs to be designed",
+      "intro": "Your team may know what learners need to cover. The next step is deciding how to explain it, where learners will practise and how the materials will support delivery.",
+      "items": [
+        "The syllabus is ready, but the lesson sequence or supporting resources are incomplete.",
+        "Presentations, worksheets and assessments have been created separately and need to align.",
+        "Educators are repeatedly rebuilding materials for the same course.",
+        "An online course needs clearer organisation before learners can use it."
+      ],
+      "close": "We work with your educators and subject-matter experts to develop the agreed course materials around the learning goals and the setting in which they will be used."
+    },
+    "servicesTitle": "Support for the course and the people using it",
+    "servicesIntro": "We can help with the learning plan, the online course, the delivery setup or a specific set of resources. Each service is shaped around your audience and the agreed content.",
+    "services": [
+      {
+        "index": "01 / PLAN",
+        "title": "Instructional Design and Course Planning",
+        "fit": "You need to connect the learning goals with the course structure.",
+        "description": "We review your syllabus and source material with your team, then map a sequence that links the content, learner activities and assessment.",
+        "details": [
+          "Learning objectives and content organisation",
+          "Course outlines, lesson sequences and storyboards",
+          "Activities and assessments aligned with the agreed objectives"
+        ],
+        "outcome": "A learning plan that shows what will be taught, how learners will practise and how understanding will be checked."
+      },
+      {
+        "index": "02 / DEVELOP",
+        "title": "Online Course Design and Development",
+        "fit": "Approved content needs to become an online or blended course.",
+        "description": "We develop lessons and resources for the learner group, using a consistent structure so the course is easier to navigate and deliver.",
+        "details": [
+          "Lesson content and teaching presentations",
+          "Interactive learning activities, quizzes and supporting downloads",
+          "Review of existing courses for structure, consistency and usability"
+        ],
+        "outcome": "The agreed course materials, developed for your delivery format and ready for your team’s review."
+      },
+      {
+        "index": "03 / SET UP",
+        "title": "Course Platform Setup and Support",
+        "fit": "Your approved course needs to be organised for digital delivery.",
+        "description": "We set up the agreed lesson structure in Kajabi, Thinkific or Teachable and check the course from the learner’s perspective.",
+        "details": [
+          "Module and lesson setup with content uploads",
+          "Downloadable resources and learner access configuration",
+          "Checks of navigation, lesson order, links and downloads"
+        ],
+        "outcome": "A course area organised around the agreed learning sequence, with setup checks completed before handover."
+      },
+      {
+        "index": "04 / DESIGN",
+        "title": "Graphic and Document Design",
+        "fit": "Educators and learners need well-organised resources for the course.",
+        "description": "We design each document for its purpose, from introducing a topic to guiding a session or providing space for learner responses.",
+        "details": [
+          "Workbooks, worksheets, journals, eBooks and learning guides",
+          "Teaching presentations, facilitator guides and course graphics",
+          "Interactive fillable PDFs and lead magnets for education businesses"
+        ],
+        "outcome": "Resources designed for the agreed print or digital format, with consistent layout and usable instructions."
+      }
+    ],
+    "startingTitle": "Start with a defined learning need",
+    "starting": [
+      {
+        "title": "Plan a course or unit",
+        "description": "We can help organise the objectives, lesson sequence, activities and assessments before your team moves into production."
+      },
+      {
+        "title": "Develop a course and its resources",
+        "description": "Combine course development with presentations, learner workbooks, facilitator guides and platform setup where needed."
+      },
+      {
+        "title": "Improve the materials you already use",
+        "description": "Begin with one workbook, a set of worksheets, a presentation or a review of an existing course. We agree which parts need to change."
+      }
+    ],
+    "scopeNote": "The project scope reflects your content, delivery setting, review requirements and final formats. We confirm the timeline and fee before production begins.",
+    "processTitle": "Clear responsibilities at each review stage",
+    "process": [
+      {
+        "title": "Understand the learning context",
+        "description": "We discuss the learners, objectives, available materials and delivery requirements. Together we agree the scope, milestones and who will review the work."
+      },
+      {
+        "title": "Plan the learning sequence",
+        "description": "We map the course content and decide how lessons, activities and assessments will support the intended learning goals."
+      },
+      {
+        "title": "Develop and review the materials",
+        "description": "We create the agreed resources and share them at planned stages. Your educators and subject-matter experts review accuracy, curriculum alignment and internal requirements."
+      },
+      {
+        "title": "Prepare the final delivery",
+        "description": "We incorporate the agreed feedback and provide the final files. Where platform setup is included, we upload the course and check the learner experience."
+      }
+    ],
+    "founder": {
+      "title": "Meet Hina Fayyaz",
+      "role": "Founder and Creative Lead of Hinova Design",
+      "paragraphs": [
+        "Hina brings experience from more than 250 international freelance projects across documents, presentations and related design work. Through Hinova, she connects that design experience with course planning and development support for educators and coaches.",
+        "She guides project direction and design quality, working with clients to keep the materials consistent and suited to the people who will use them."
+      ]
+    },
+    "faqTitle": "What your team may want to know",
+    "faq": [
+      {
+        "question": "Can you work with our current syllabus and materials?",
+        "answer": "Yes. We can work from a syllabus, lesson notes, presentations, existing resources or an online course. We review the starting point together before agreeing the scope."
+      },
+      {
+        "question": "Who checks subject accuracy and curriculum alignment?",
+        "answer": "Your educators and subject-matter experts review and approve those areas. Hinova supports the learning structure, resource development, design and usability."
+      },
+      {
+        "question": "Can we begin with one unit or resource?",
+        "answer": "Yes. The project can focus on one course, unit, workbook, presentation or another agreed resource. It does not need to cover an entire programme."
+      },
+      {
+        "question": "Can you provide print and digital formats?",
+        "answer": "Yes. We agree how the resources will be used and which final or editable formats are needed before design begins."
+      },
+      {
+        "question": "Which platforms do you support?",
+        "answer": "Our course setup support covers Kajabi, Thinkific and Teachable. Share your delivery requirements so we can confirm whether this support fits your project."
+      },
+      {
+        "question": "How are the schedule and cost agreed?",
+        "answer": "We consider the amount and readiness of the content, the deliverables, platform requirements and your internal review process. The proposal sets out the agreed scope, fee and milestones."
+      }
+    ],
+    "strategy": {
+      "title": "Let’s discuss what your educators and learners need",
+      "callTitle": "Education Project Strategy Call",
+      "description": "Share the course or resource you are working on, the learners it is for and what your team needs help with. We’ll discuss the materials you have and where Hinova’s planning, development or design support could fit.",
+      "topics": [
+        "The learners, teaching context and intended learning goals",
+        "Your syllabus, source content and current resources",
+        "The deliverables and formats needed for delivery",
+        "Review responsibilities, timing and a practical first step"
+      ],
+      "note": "You do not need a fully written brief. A syllabus, a few resources or a description of the learning challenge is enough to begin. There is no obligation to start a project.",
+      "alternativeTitle": "Have a defined project in mind?",
+      "alternativeDescription": "Send your brief, current materials and delivery requirements so we can understand the support you need.",
+      "alternativeButton": "Start an Education Project"
+    }
+  },
+  "coaches": {
+    "title": "Course Design for Coaches | Hinova Design",
+    "eyebrow": "Course design and learning resources for coaches",
+    "heroTitle": "Build a course that helps clients put your",
+    "heroHighlight": "coaching into practice",
+    "heroParagraphs": [
+      "Hinova helps you plan and develop online courses, design branded learning resources and set up your course on Kajabi, Thinkific or Teachable.",
+      "Bring your coaching approach and the material you already have. We’ll help organise what clients learn, create opportunities to apply it and prepare the resources they need along the way."
+    ],
+    "heroSupport": "Starting with an outline, finished content or an existing course? We can work from there.",
+    "needs": {
+      "title": "Knowing what to teach is one part of building a course",
+      "intro": "You may explain your ideas easily in a live session. Turning that conversation into lessons, activities and resources takes a different kind of work.",
+      "items": [
+        "You know the topic, but you are still deciding what belongs in each lesson.",
+        "Your slides cover the ideas, but clients need a way to practise between sessions.",
+        "Your workbook and course materials have grown separately and need to work together.",
+        "You have content ready, but organising the platform is another task on your list."
+      ],
+      "close": "We help with the planning and production around your expertise, so you can stay involved in the content without having to design every part yourself."
+    },
+    "servicesTitle": "Choose the support your course needs",
+    "servicesIntro": "Our work brings together four connected services. You can use one on its own or combine them around the course you want to create.",
+    "services": [
+      {
+        "index": "01 / PLAN",
+        "title": "Instructional Design and Course Planning",
+        "fit": "You have the knowledge and need a learning structure.",
+        "description": "We work with you to define what clients should understand or be able to do, then organise the content around those goals.",
+        "details": [
+          "Learning objectives and a review of your existing material",
+          "Course outlines, module sequences and lesson storyboards",
+          "Activities, reflection prompts and assessment planning"
+        ],
+        "outcome": "A course plan that shows what each lesson covers and how clients will use the learning."
+      },
+      {
+        "index": "02 / DEVELOP",
+        "title": "Online Course Design and Development",
+        "fit": "You need your content developed into lessons and learning materials.",
+        "description": "We turn the agreed content into a course that gives clients information, practice and ways to check their understanding.",
+        "details": [
+          "Lesson content and presentations",
+          "Interactive learning activities, quizzes and supporting resources",
+          "Review and improvement of an existing course’s structure, consistency and usability"
+        ],
+        "outcome": "The agreed lessons and resources, developed as a connected course rather than separate files."
+      },
+      {
+        "index": "03 / SET UP",
+        "title": "Course Platform Setup and Support",
+        "fit": "Your course materials need to be organised for online delivery.",
+        "description": "We set up the agreed course structure in Kajabi, Thinkific or Teachable and check how it works from the learner’s side.",
+        "details": [
+          "Module and lesson setup with content uploads",
+          "Downloadable resources and student access configuration",
+          "Checks of lesson order, navigation, links and downloads before launch"
+        ],
+        "outcome": "An organised course area with the agreed content and access settings checked before handover."
+      },
+      {
+        "index": "04 / DESIGN",
+        "title": "Graphic and Document Design",
+        "fit": "You need learning resources that are useful and recognisably yours.",
+        "description": "We design around your content, brand and the way clients will use each resource, whether they print it, read it on screen or type directly into it.",
+        "details": [
+          "Workbooks, worksheets, journals, eBooks and lead magnets",
+          "Presentations, facilitator guides and course graphics",
+          "Interactive fillable PDFs"
+        ],
+        "outcome": "Branded resources in the final and editable formats agreed for your project."
+      }
+    ],
+    "startingTitle": "You can start with the part that needs attention",
+    "starting": [
+      {
+        "title": "Plan a new course",
+        "description": "Bring your outline or existing teaching material. We can begin with learning objectives, a course map and the resources each lesson will need."
+      },
+      {
+        "title": "Develop or refresh a course",
+        "description": "We can combine planning, lesson development, resource design and platform setup around an agreed scope, or improve the parts of a course you already offer."
+      },
+      {
+        "title": "Create one useful resource",
+        "description": "Start with a workbook, a workshop presentation, an eBook or a fillable PDF. A full course project is not required."
+      }
+    ],
+    "scopeNote": "We confirm the deliverables, feedback stages, final formats, timeline and fee before work begins.",
+    "processTitle": "A process that keeps you involved without leaving everything with you",
+    "process": [
+      {
+        "title": "Understand the project",
+        "description": "We discuss your clients, learning goals and current material, then agree the scope, milestones and review stages."
+      },
+      {
+        "title": "Plan the learning",
+        "description": "We organise the course sequence and decide where explanations, activities and resources will support each objective."
+      },
+      {
+        "title": "Develop and review",
+        "description": "We create the agreed lessons and designs. You review the content and give feedback at the planned stages, so your approach stays recognisable."
+      },
+      {
+        "title": "Prepare for delivery",
+        "description": "We refine the materials and provide the agreed files. If platform setup is included, we upload the course and check the learner experience before handover."
+      }
+    ],
+    "founder": {
+      "title": "Meet Hina Fayyaz",
+      "role": "Founder and Creative Lead of Hinova Design",
+      "paragraphs": [
+        "Hina’s freelance experience spans more than 250 international client projects. Her work across documents, presentations and course resources informs Hinova’s attention to both the content and how people will use it.",
+        "As founder and creative lead, she guides the project direction and design quality, keeping the work connected to your goals and your brand."
+      ]
+    },
+    "faqTitle": "A few things you may want to know",
+    "faq": [
+      {
+        "question": "Do I need finished content before contacting you?",
+        "answer": "No. You can bring an outline, notes, existing slides or a course that needs updating. We’ll review what you have and agree what you need to supply and what we will develop."
+      },
+      {
+        "question": "Can you help with just a workbook or presentation?",
+        "answer": "Yes. We can work on one resource, one part of a course or a wider project. The scope is built around the support you need."
+      },
+      {
+        "question": "Will the course still sound like me?",
+        "answer": "Your expertise and approach guide the work. We use your source material and include review stages so you can check the language and accuracy before approval."
+      },
+      {
+        "question": "Which platforms can you help with?",
+        "answer": "We provide course setup support for Kajabi, Thinkific and Teachable, including agreed uploads, resources, access settings and learner-experience checks."
+      },
+      {
+        "question": "Can I update the files afterwards?",
+        "answer": "We agree the editable and final formats before production. Let us know who will update the materials and which tools they use."
+      },
+      {
+        "question": "How do you set the cost and timeline?",
+        "answer": "We consider the content available, lesson or page count, design requirements, platform work and review stages. Your proposal sets out the agreed fee, deliverables and schedule."
+      }
+    ],
+    "strategy": {
+      "title": "Let’s talk about the course you want to create",
+      "callTitle": "Course and Resource Strategy Call",
+      "description": "Tell us what you want to teach, who it is for and where you would like support. We’ll talk through your starting point and help identify which parts of the project need planning, development, design or platform setup.",
+      "topics": [
+        "Your coaching approach and what clients should be able to do",
+        "The content and resources you already have",
+        "The deliverables, delivery format and timing you have in mind",
+        "A sensible first step for the project"
+      ],
+      "note": "An outline or a few notes is enough to start the conversation. There is no obligation to begin a project.",
+      "alternativeTitle": "Already have a project brief?",
+      "alternativeDescription": "Send us the details of your course or resource, and tell us where you need support.",
+      "alternativeButton": "Start a Project"
+    }
+  }
+}
