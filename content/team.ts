@@ -3,6 +3,6 @@ export const teamMembers = [
   { name: "Hina Fayyaz", role: "Course Designer", initials: "HF", photo: "/images/team/team-5.webp" },
   { name: "Iqra Fayyaz", role: "Senior Designer", initials: "IF", photo: "/images/team/team-7.webp" },
   { name: "Ayesha Zahid", role: "Content Creator", initials: "AZ", photo: "/images/team/team-6.webp" },
-  { name: "Sumaira Fayyaz", role: "Document Designer", initials: "SF", photo: null },
+  { name: "Sumaira Fayyaz", role: "Graphic Designer", initials: "SF", photo: "/images/team/team-8.webp" },
   { name: null, role: "Instructional Designer", initials: "+", photo: null },
 ];
