@@ -65,7 +65,7 @@ export const inquiryConfig: Record<Audience, InquiryConfig> = {
           ],
           [
             "Graphic & Document Design",
-            "Create branded workbooks, guides, presentations, graphics and fillable PDFs.",
+            "Create branded workbooks, journals, worksheets, guides, presentations, graphics and fillable PDFs.",
           ],
           ["I’m Not Sure Yet", "Help me work out what my programme needs."],
         ],
